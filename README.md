@@ -12,3 +12,7 @@ java重度患者，了解python、ruby以及一点点前端知识。
 
 [import project](https://github.com/cuitpanfei/import)	"简单excel导入"
 
+(我的博客)[https://www.pfinfo.com.cn/blog/]
+
+(我的更多)[https://me.pfinfo.com.cn/]
+
