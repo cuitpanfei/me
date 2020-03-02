@@ -14,5 +14,5 @@ java重度患者，了解python、ruby以及一点点前端知识。
 
 [我的博客](https://www.pfinfo.com.cn/blog/)
 
-[我的更多](https://me.pfinfo.com.cn/)
+[我的更多](https://www.pfinfo.com.cn/love/me/)
 
