@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on CUITPF</title>
+    <link>http://localhost:1313/categories/java/</link>
+    <description>Recent content in Java on CUITPF</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Thu, 12 Jun 2025 13:07:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>去除PDF水印</title>
+      <link>http://localhost:1313/posts/post-406/</link>
+      <pubDate>Thu, 12 Jun 2025 13:07:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-406/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;使用PDFWatermarkRemover去除PDF水印的教程 
+    &lt;div id=&#34;使用pdfwatermarkremover去除pdf水印的教程&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%bd%bf%e7%94%a8pdfwatermarkremover%e5%8e%bb%e9%99%a4pdf%e6%b0%b4%e5%8d%b0%e7%9a%84%e6%95%99%e7%a8%8b&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;引言 
+    &lt;div id=&#34;引言&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%bc%95%e8%a8%80&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;在处理PDF文档的过程中，我们经常遇到需要移除水印的情况。无论是为了提升文档的可读性，还是为了满足特定的业务需求，去除水印都是一个常见的任务。然而，现有的解决方案往往存在收费昂贵或上手难度高的问题。例如，某些软件要求用户具备一定的技术背景，并且需要指定水印的操作码才能进行有效的删除15。鉴于此，我开发了一个名为&lt;a
+  href=&#34;https://github.com/cuitpanfei/PDFWatermarkRemover&#34;
+    target=&#34;_blank&#34;
+  &gt;PDFWatermarkRemover&lt;/a&gt;的&lt;code&gt;Java&lt;/code&gt;项目，旨在提供一个免费、易于使用的工具来解决这些问题。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;项目概述 
+    &lt;div id=&#34;项目概述&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e9%a1%b9%e7%9b%ae%e6%a6%82%e8%bf%b0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;开发理由 
+    &lt;div id=&#34;开发理由&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%bc%80%e5%8f%91%e7%90%86%e7%94%b1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;免费与成本效益 
+    &lt;div id=&#34;免费与成本效益&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%85%8d%e8%b4%b9%e4%b8%8e%e6%88%90%e6%9c%ac%e6%95%88%e7%9b%8a&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;市场上许多专业的PDF编辑软件虽然功能强大，但大多需要付费购买才能解锁全部功能，特别是对于去水印这样的高级功能。这对于个人用户或者预算有限的小型企业来说可能是一个不小的负担。相比之下，PDFWatermarkRemover完全免费，为用户提供了一个经济实惠的选择。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>LITIENGINE 纯 Java 2D 游戏引擎 （一）</title>
+      <link>http://localhost:1313/posts/post-18/</link>
+      <pubDate>Tue, 02 Nov 2021 15:02:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-18/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;简介 
+    &lt;div id=&#34;简介&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%ae%80%e4%bb%8b&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;介绍 
+    &lt;div id=&#34;介绍&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%bb%8b%e7%bb%8d&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;LITIENGINE是一个免费、开源且易于学习的2D Java 游戏引擎。它提供了使用基础 Java 来创建基于图块的 2D 游戏的所有基础结构，无论游戏平台、自上而下的射击游戏还是RPG。其主要功能包括一个&lt;strong&gt;2D物理引擎&lt;/strong&gt;、一个&lt;strong&gt;2D渲染引擎&lt;/strong&gt;、一个&lt;strong&gt;2D声音引擎&lt;/strong&gt;、一个&lt;strong&gt;粒子系统（Particle System）&lt;/strong&gt;、&lt;strong&gt;对平铺地图 (.tmx) 的支持&lt;/strong&gt;和&lt;strong&gt;用于基本游戏开发的基本且干净的API&lt;/strong&gt;。由于没有外部库而保持高可移植性，所以LITIENGINE原生支持所有常见的桌面操作系统。&lt;/p&gt;
+&lt;p&gt;同其他引擎的相比，LITIENGINE有一个特点，它是完全基于纯Java AWT图形的2D渲染引擎。如果您目前已经学习或正要学习Java，这将立即为您提供出色的结果和高度优化的渲染性能。我们认为这是学习制作视频游戏的绝佳而简单的方法，而无需关心大量矢量数学或“OpenGL shenanigans”。而且通过**粒子系统（Particle System）**创建漂亮的视觉效果（如火或烟）可以进一步增强图形。&lt;/p&gt;
+&lt;p&gt;LITIENGINE中的环境是基于.tmx贴图（可以用著名的 Tiled Level Editor创建和编辑，并使用LITIENGINE实体赋予其生命）。&lt;/p&gt;
+&lt;p&gt;此外，SoundEngine支持二维音频，可以相对于环境中的某个位置播放。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;作者和社区 
+    &lt;div id=&#34;作者和社区&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%bd%9c%e8%80%85%e5%92%8c%e7%a4%be%e5%8c%ba&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;LITIENGINE是由巴伐利亚两兄弟（Steffen 和 Matthias）发明、编写和维护，它已成为一个相当受欢迎的开源项目，贡献者数量不断增加，社区活跃。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;示例项目 
+    &lt;div id=&#34;示例项目&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%a4%ba%e4%be%8b%e9%a1%b9%e7%9b%ae&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;“&lt;a
+  href=&#34;https://github.com/gurkenlabs/litiengine-gurk-nukem&#34;
+    target=&#34;_blank&#34;
+  &gt;Gurk Nukem&lt;/a&gt;” - 用 LITIENGINE 制作的 2-bit平台射击游戏&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>物联网平台——Pgroza（一）</title>
+      <link>http://localhost:1313/posts/post-13/</link>
+      <pubDate>Tue, 06 Oct 2020 14:25:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-13/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;Pgroza 简介 
+    &lt;div id=&#34;pgroza-简介&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#pgroza-%e7%ae%80%e4%bb%8b&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Pgroza 是参考groza制作的物联网平台，面向个人，开源。
+此项目仅仅用于学习，不建议用在商业用途。
+之所以会有这个想法，主要是因为之前从事过物联网行业，虽然是做上层业务的，但是还是对这个生态比较感兴趣，然后在网上找了不少的资料过后，终于还是决定自己搭建一个。经过调研后发现几个问题：1.凑齐一个生态成本比较高；2.基于现成的云平台进行开发过后，总是要受各种条件限制；3.依赖现有平台和框架，最后开发的基本上都是各种业务层的东西了，对生态链还是不够深入理解。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;关于Pgroza的发展 
+    &lt;div id=&#34;关于pgroza的发展&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%85%b3%e4%ba%8epgroza%e7%9a%84%e5%8f%91%e5%b1%95&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;其实我还没想好要怎么去研发Pgroza，现在的想法是现做一个面向单个家庭的。
+所以应该是一个&lt;strong&gt;单机版&lt;/strong&gt;的，为了以后&lt;strong&gt;拓展方便&lt;/strong&gt;，开发时需要&lt;strong&gt;注意解耦&lt;/strong&gt;的问题。
+如果研发顺利，应该是可以做成分布式的；未来的人对数据隐私会比现在重视的很多，所以多家庭接入的问题暂时不会考虑了。最后就是如果要面向大众，最好是能一键化部署，就好像安装应用程序一样。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;对Pgroza的初期功能分析 
+    &lt;div id=&#34;对pgroza的初期功能分析&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%af%b9pgroza%e7%9a%84%e5%88%9d%e6%9c%9f%e5%8a%9f%e8%83%bd%e5%88%86%e6%9e%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;涉及对象 
+    &lt;div id=&#34;涉及对象&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%b6%89%e5%8f%8a%e5%af%b9%e8%b1%a1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;一般情况，物联网平台涉及对象不外乎两个：&lt;strong&gt;用户和设备&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;对于&lt;strong&gt;设备&lt;/strong&gt;： 设备需要接入，接入时需要提供协议，现在的物联网平台一般都是规定一定的接入协议的，设备一般都是需要去遵从这些既定协议的。当然，如果设备商比较牛掰，物联网平台也可以增加协议去适配厂商的。设备按照协议接入平台后，在某些事件（常见的就是温度变化、湿度变化以及光变化等等）触发后，向平台上报数据，平台根据协议解析后，存储下来，展示的接口就可以查询数据用于展示了。高级的功能可以根据不同设备的事件产生联动效果（比如：检测到光变暗了，就开灯）。同种设备安装在不同的地方可能有不同的应用，所以每个设备需要有自己的信息，最好是在接入的时候就关联上。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SpringCloud入门篇（一）- 简介</title>
+      <link>http://localhost:1313/posts/post-8/</link>
+      <pubDate>Mon, 02 Mar 2020 08:41:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-8/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;写在前面
+**本系列文章，假定读者会使用Spring Boot完成项目开发。**如果读者对这方面只是上有欠缺，建议先补足相应知识。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;本文不涉及SpringCloud的相关组件，主要是为例让读者了解SpringCloud以及为什么要选择这个技术&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;SpringCloud怎么出现的 
+    &lt;div id=&#34;springcloud怎么出现的&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#springcloud%e6%80%8e%e4%b9%88%e5%87%ba%e7%8e%b0%e7%9a%84&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;这个问题是需要站在企业的角度去思考的。说这个问题之前，我们先要明白几个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;互联网架构是如何演变的&lt;/li&gt;
+&lt;li&gt;演变过程中，不同级别企业是如何转型的&lt;/li&gt;
+&lt;li&gt;单机、分布式和集群的区别是什么？
+如果你对上面这些问题有个大概的理解了（&lt;a
+  href=&#34;https://www.baidu.com/&#34;
+    target=&#34;_blank&#34;
+  &gt;度娘一下&lt;/a&gt;），下面我说的你可能就更能理解了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;其实对企业来说，一切系统的开发，就是花更小的代价来完成更快速的响应，当然这里的“更小的代价”是一个相对的描述。&lt;/p&gt;
+&lt;p&gt;以前单机的时候，比较多的企业由于种种原因（资源有限，人力不足，为了快速开发一个产品，或上线一个网站），单机往往是一个不错的选择，此时会将应用程序、文件服务、数据库服务等资源集中在一台 Server 上。这样部署方便，就像tomcat部署war包。&lt;/p&gt;
+&lt;p&gt;后来，带宽越来越大，服务开发的时候可展示的资源（图片、短视频）也越来越多，相对的，脚手架也是百花齐放，与之带来的是对各种文件资源的依赖增多，以前一个网页加载完毕也就∏kb/十几kb/j几十kb，连接数也就那么些；现在动辄几百kb/几Mb，连接数还越来越多，用户越来越庞大。这些都是需要各种开销的，有兴趣的可以去搜一下“打开一个网页背后都发生了什么”。企业为了更快的处理好这个问题，就开始增加机器（分流），但是紧接着问题出现了，如何能保证这些机器间的隔离性以及业务的一致性（如对数据库的脏读、幻读、重复读等问题），所以某些大公司开始了专治各种不服，这就开启了集群时代。&lt;/p&gt;
+&lt;p&gt;再到后来，3G到4G时代，网络基本上不再作为互联网发展的限制，越来越多的用户开始习惯于使用互联网产品（比如知名的BAT），这些企业为了应对某些业务（如：双11）高峰时期，大量囤积了机器，自主研发了一系列技术，但是平时闲下来的时候，机器就空闲了，所以，企业需要降低成本，就有了公有云。公有云的出现，让小企业小公司也可以通过租用这些机器，完成自己系统云化，这就是云时代。&lt;/p&gt;
+&lt;p&gt;在这期间，单纯的集群下，特定时期出现的高峰访问某个业务，对机器压力都是很大的，机器高负荷运转，其他业务也会受影响（资源补足），所以企业开始拆分系统业务，一个业务分拆多个子业务，部署在不同的服务器上。
+这就是分布式，Spring Cloud就是在这期间出现的，其本质实际上是整合了Spring旗下的很多组件。&lt;/p&gt;
+&lt;p&gt;所以，总的来说：
+&lt;strong&gt;单机、分布式和集群是企业在不同时代下应对用户需求的各种部署方案。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;可能有很多人之前对分布式和集群有点混淆。简单来说：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;分布式：一个业务分拆多个子业务，部署在不同的服务器上
+集群：同一个业务，分别部署在不同的服务器上&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;所以分布式的每一个节点，完成的是不同的业务，一个节点挂了，那么这个业务功能就无法访问了，甚至可能会影响到其他业务。而集群是一个比较有组织的架构，正因为有组织性，一个服务节点挂了，其他服务节点可以顶上来，从而保证了服务的健壮性。&lt;/p&gt;
+&lt;p&gt;所以说，集群可以理解为：你中有我，我中有你，手拉手肩并肩，一起保证服务的健壮性。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;SpringCloud的组件 
+    &lt;div id=&#34;springcloud的组件&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#springcloud%e7%9a%84%e7%bb%84%e4%bb%b6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;基本上在多家公司做过大型一点的商业项目，都会知道，分布式集群化方案，每家企业都有自己的特色，基本上都是基于nginx+docker，有条件的就是k8s+nginx+docker+jenkin或者nginx+dobbo+docker。
+其实本质都是：
+分流、自动化部署、自动调度。健壮性较好的，系统能够自愈，不需要重启服务。&lt;/p&gt;
+&lt;p&gt;详细点说就是：
+服务治理、负载均衡、分布式配置中心、服务保护（熔断器、降级）、网关路由、监控。
+这些之前主要是K8S+nginx在做。
+现在Spring也开发出一套自己的（由于SpringCloud的版本命名特殊，所以，先说明，后续版本默认是基于&lt;code&gt;Finchley.RELEASE&lt;/code&gt;来表述），整合了一下，叫SpringCloud:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Excel导入简易版（一）</title>
+      <link>http://localhost:1313/posts/post-4/</link>
+      <pubDate>Sun, 27 Oct 2019 07:52:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-4/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;写在前面 
+    &lt;div id=&#34;写在前面&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%86%99%e5%9c%a8%e5%89%8d%e9%9d%a2&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;需要说明的是，这篇文章的主旨不是要实现一个完美的Excel导入功能，而是希望做到抛砖引玉以及帮助部分同学展开自我思考的思路。&lt;/p&gt;
+&lt;p&gt;好了，话不多说，我们直接进入正题。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;背景定义 
+    &lt;div id=&#34;背景定义&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e8%83%8c%e6%99%af%e5%ae%9a%e4%b9%89&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;我们在完成功能前一般需要梳理一下需求，由于本篇文章旨在引导，所以需求一般会比较简单。&lt;/p&gt;
+&lt;p&gt;我们定义如下背景：&lt;/p&gt;
+&lt;p&gt;某公司由于业务需要，现想要自主研发管理系统，这就需要将公司部分数据从原有系统导出（现有系统已支持），然后导入到新系统中。由于公司体量庞大，业务和数据较多，所以公司领导层希望研发部逐步完成数据转移。研发部的第一个功能就是人员信息数据转移，已知原有人员信息模本中盖内容包括：所在部门，姓名，性别，出生日期，年龄，户籍所在地，居住地，就职时间，婚姻状况，教育程度，联系电话，紧急联系人，紧急联系人电话。&lt;/p&gt;
+&lt;p&gt;由于研发部主要都是Java开发人员，所以研发部决定先用java开发一版demo，于是采集了部分样本数据：&lt;a
+  href=&#34;http://www.pfinfo.com.cn/blog/upload/2019/10/rkkrkkoutagtaoitcrp691du6m.xlsx&#34;
+    target=&#34;_blank&#34;
+  &gt;人员信息&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;alt&#34; src=&#34;http://www.pfinfo.com.cn/blog/upload/2019/10/5gfom78f18jc3rfjoahr0jndsp.png&#34;&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;由于业务庞大，为分工明确，研发部将数据导入分为多个模块（eg: 文件上传，数据转换，数据填充，相关业务初始化，数据入库）。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;分析需求 
+    &lt;div id=&#34;分析需求&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%88%86%e6%9e%90%e9%9c%80%e6%b1%82&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;其他模块暂且不分析，我们简要分析一下上述背景中关于&lt;strong&gt;数据转换&lt;/strong&gt;需求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Excel文件上传后，需要读入文件内容，然后逐行转换数据为指定对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;貌似这个功能很简单，我们就直接开始吧。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;创建Demo Project 
+    &lt;div id=&#34;创建demo-project&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%88%9b%e5%bb%bademo-project&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;我们尽量精简一点，我们使用Eclipse（或者idea）创建一个Maven项目&lt;br&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;alt&#34; src=&#34;http://www.pfinfo.com.cn/blog/upload/2019/10/r69nn1sbh8h34p56vkb1fvdjl3.png&#34;&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

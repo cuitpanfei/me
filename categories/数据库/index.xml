@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据库 on CUITPF</title>
+    <link>http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <description>Recent content in 数据库 on CUITPF</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Fri, 19 Aug 2022 08:33:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MySQL方法GROUP_CONCAT的应用</title>
+      <link>http://localhost:1313/posts/post-242/</link>
+      <pubDate>Fri, 19 Aug 2022 08:33:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-242/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;MySQL方法GROUP_CONCAT的应用，多对多联表查询，以A表为主表，通过关联表C查询出B表关联A表任意记录的多条记录的某个字段的合并值&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;开发中遇到这样的一个需求：用户表为A，角色表为B，用户角色关系通过C表多对多关联，我们需要查询出每一个用户所拥有的角色，以下图的格式显示：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;用户ID&lt;/th&gt;
+          &lt;th&gt;用户姓名&lt;/th&gt;
+          &lt;th&gt;拥有角色&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;1&lt;/td&gt;
+          &lt;td&gt;小明1&lt;/td&gt;
+          &lt;td&gt;角色1,角色4,角色5,角色6&amp;hellip;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;2&lt;/td&gt;
+          &lt;td&gt;小明2&lt;/td&gt;
+          &lt;td&gt;角色1,角色4,角色5,角色6&amp;hellip;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-- 用户表
+CREATE TABLE `sys_user` (
+  `user_id` int NOT NULL AUTO_INCREMENT COMMENT &amp;#39;用户ID&amp;#39;,
+  `user_name` varchar(50) NOT NULL COMMENT &amp;#39;用户姓名&amp;#39;,
+  `user_age` varchar(3) DEFAULT NULL COMMENT &amp;#39;用户年龄&amp;#39;,
+  `creater` varchar(255) DEFAULT NULL COMMENT &amp;#39;创建人&amp;#39;,
+  `create_time` datetime DEFAULT NULL COMMENT &amp;#39;创建时间&amp;#39;,
+  `updater` varchar(50) DEFAULT NULL COMMENT &amp;#39;更新人&amp;#39;,
+  `update_time` datetime DEFAULT NULL COMMENT &amp;#39;更新时间&amp;#39;,
+  PRIMARY KEY (`user_id`)
+)  ENGINE=InnoDB AUTO_INCREMENT=1  COMMENT=&amp;#39;用户表&amp;#39;;
+
+-- 角色表
+CREATE TABLE  `sys_role`  (
+  `role_id` int NOT NULL AUTO_INCREMENT COMMENT &amp;#39;角色ID&amp;#39;,
+  `role_name` varchar(50) NOT NULL COMMENT &amp;#39;角色名称&amp;#39;,
+  `creater` varchar(50) NULL COMMENT &amp;#39;创建人&amp;#39;,
+  `create_time` datetime NULL COMMENT &amp;#39;创建时间&amp;#39;,
+	`updater` varchar(50) NULL COMMENT &amp;#39;更新人&amp;#39;,
+  `update_time` datetime NULL COMMENT &amp;#39;更新时间&amp;#39;,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1    COMMENT=&amp;#39;角色表&amp;#39;;
+
+-- 用户角色关系表
+CREATE TABLE  `sys_user_role`  (
+  `user_role_id` int NOT NULL AUTO_INCREMENT COMMENT &amp;#39;用户角色关系ID&amp;#39;,
+  `role_id` varchar(50) NOT NULL COMMENT &amp;#39;角色ID&amp;#39;,
+	`user_id` varchar(50) NOT NULL COMMENT &amp;#39;用户ID&amp;#39;,
+  PRIMARY KEY (`user_role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1   COMMENT=&amp;#39;用户角色关系表&amp;#39;;
+
+-- 插入模拟数据 start
+create procedure insert8()
+begin declare i int default 0; 
+repeat 
+INSERT INTO sys_role(role_name,creater,create_time,updater,update_time)select role_name,   creater, create_time, updater,update_time from sys_role UNION ALL select &amp;#39;角色&amp;#39;,&amp;#39;1&amp;#39;,NOW(),&amp;#39;1&amp;#39;, NOW() from dual ;
+INSERT INTO sys_user(user_name,user_age,creater,create_time,updater,update_time) select  user_name,user_age,creater,create_time, updater,update_time from sys_user UNION ALL select &amp;#39;小明&amp;#39;,&amp;#39;10&amp;#39;,&amp;#39;1&amp;#39;,NOW(),&amp;#39;1&amp;#39;,NOW() from dual ;
+set i=i+1;
+until i&amp;gt;8 end repeat;  end;
+call insert8; 
+drop procedure if exists insert8;
+ 
+
+INSERT INTO  sys_user_role (role_id, user_id ) 
+select   role_id, user_id from sys_role
+INNER JOIN sys_user ;
+
+update sys_user set user_name=REPLACE(user_name,user_name,CONCAT( user_name,user_id) );
+update sys_role set role_name=REPLACE(role_name,role_name,CONCAT(role_name,role_id) );
+-- 插入模拟数据 end
+
+-- 测试完毕删除数据
+drop table sys_user;
+drop table sys_role;
+drop table sys_user_role;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在解决问题中发现了两种方式可实现该功能&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>MySQL创建用户与授权</title>
+      <link>http://localhost:1313/posts/post-243/</link>
+      <pubDate>Fri, 12 Aug 2022 09:02:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-243/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;创建用户 
+    &lt;div id=&#34;创建用户&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%88%9b%e5%bb%ba%e7%94%a8%e6%88%b7&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CREATE USER &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;username&amp;#39;&lt;/span&gt;@&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;host&amp;#39;&lt;/span&gt; IDENTIFIED BY &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;username：你将创建的用户名&lt;/li&gt;
+&lt;li&gt;host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以&lt;strong&gt;从任意远程主机登陆&lt;/strong&gt;，可以使用通配符&lt;code&gt;%&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;password：该用户的登陆密码，密码可以为空，如果为空则该用户可以不需要密码登陆服务器&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;&lt;strong&gt;例子&lt;/strong&gt; 
+    &lt;div id=&#34;例子&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%be%8b%e5%ad%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;dog&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt; IDENTIFIED &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;123456&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pig&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;192.168.1.101_&amp;#39;&lt;/span&gt; IDENDIFIED &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;123456&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pig&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%&amp;#39;&lt;/span&gt; IDENTIFIED &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;123456&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pig&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%&amp;#39;&lt;/span&gt; IDENTIFIED &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pig&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 class=&#34;relative group&#34;&gt;&lt;strong&gt;授权&lt;/strong&gt; 
+    &lt;div id=&#34;授权&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%8e%88%e6%9d%83&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;GRANT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;privileges&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; databasename.tablename &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;username&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;host&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;privileges：用户的操作权限，如&lt;code&gt;SELECT&lt;/code&gt;，&lt;code&gt;INSERT&lt;/code&gt;，&lt;code&gt;UPDATE&lt;/code&gt;等，如果要授予所的权限则使用&lt;code&gt;ALL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;databasename：数据库名&lt;/li&gt;
+&lt;li&gt;tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用&lt;code&gt;*&lt;/code&gt;表示，如&lt;code&gt;*.*&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;&lt;strong&gt;例子&lt;/strong&gt; 
+    &lt;div id=&#34;例子-1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%be%8b%e5%ad%90-1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;GRANT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;INSERT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; test.&lt;span style=&#34;color:#66d9ef&#34;&gt;user&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pig&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;GRANT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ALL&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;.&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pig&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>公司用的 MySQL 团队开发规范，太详细了，建议收藏！</title>
+      <link>http://localhost:1313/posts/post-256/</link>
+      <pubDate>Sat, 02 Apr 2022 08:11:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-256/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;数据库对象命名规范 
+    &lt;div id=&#34;数据库对象命名规范&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%af%b9%e8%b1%a1%e5%91%bd%e5%90%8d%e8%a7%84%e8%8c%83&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;数据库对象 
+    &lt;div id=&#34;数据库对象&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%af%b9%e8%b1%a1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;数据库对象是数据库的组成部分，常见的有以下几种：表（Table ）、索引（Index）、视图（View）、图表（Diagram）、缺省值（Default）、规则（Rule）、触发器（Trigger）、存储过程（Stored Procedure）、 用户（User）等。命名规范是指数据库对象如数据库（SCHEMA）、表（TABLE）、索引（INDEX）、约束（CONSTRAINTS）等的命名约定。&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;数据库对象全局命名规范 
+    &lt;div id=&#34;数据库对象全局命名规范&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%af%b9%e8%b1%a1%e5%85%a8%e5%b1%80%e5%91%bd%e5%90%8d%e8%a7%84%e8%8c%83&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;1、命名使用具有意义的英文词汇，词汇中间以下划线分隔&lt;/p&gt;
+&lt;p&gt;2、命名只能使用英文字母、数字、下划线，以英文字母开头&lt;/p&gt;
+&lt;p&gt;3、避免用MySQL的保留字如：backup、call、group等&lt;/p&gt;
+&lt;p&gt;4、所有数据库对象使用小写字母，实际上MySQL中是可以设置大小写是否敏感的，为了保证统一性，我们这边规范全部小写表示。&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;数据库命名规范 
+    &lt;div id=&#34;数据库命名规范&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%91%bd%e5%90%8d%e8%a7%84%e8%8c%83&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;1、数据库命名尽量不超过30个字符。&lt;/p&gt;
+&lt;p&gt;2、数据库命名一般为项目名称+代表库含义的简写，比如IM项目的工作流数据库，可以是 im_flow。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>mysql 替换字段部分内容</title>
+      <link>http://localhost:1313/posts/post-339/</link>
+      <pubDate>Sun, 01 Mar 2020 06:01:19 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-339/</guid>
+      <description>&lt;p&gt;[mysql]replace的用法（替换某字段部分内容） [mysql]replace的用法&lt;/p&gt;
+&lt;p&gt;1.replace into replace into table (id,name) values(&amp;lsquo;1&amp;rsquo;,&amp;lsquo;aa&amp;rsquo;),(&amp;lsquo;2&amp;rsquo;,&amp;lsquo;bb&amp;rsquo;) 此语句的作用是向表table中插入两条记录。如果主键id为1或2不存在就相当于 insert into table (id,name) values(&amp;lsquo;1&amp;rsquo;,&amp;lsquo;aa&amp;rsquo;),(&amp;lsquo;2&amp;rsquo;,&amp;lsquo;bb&amp;rsquo;) 如果存在相同的值则不会插入数据&lt;/p&gt;
+&lt;p&gt;2.replace(object,search,replace) 把object中出现search的全部替换为replace select replace(&amp;lsquo;&lt;a
+  href=&#34;https://www.163.com&#34;
+    target=&#34;_blank&#34;
+  &gt;www.163.com&lt;/a&gt;&amp;rsquo;,&amp;lsquo;w&amp;rsquo;,&amp;lsquo;Ww&amp;rsquo;)&amp;mdash;&amp;gt;WwWwWw.163.com 例：把表table中的name字段中的aa替换为bb update table set name=replace(name,&amp;lsquo;aa&amp;rsquo;,&amp;lsquo;bb&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;3.UPDATE更新一个字段中的的部分内容&lt;/p&gt;
+&lt;p&gt;现在有一条记录的字段是“abcdefg&amp;quot;,现在我只想将该字段中的c改为C，update语句应该怎么写&lt;/p&gt;
+&lt;p&gt;update 表名 set 字段1 = replace(字段1,&amp;lsquo;c&amp;rsquo;,&amp;lsquo;C&amp;rsquo;)&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>msyql全局搜索字段所在位置</title>
+      <link>http://localhost:1313/posts/post-340/</link>
+      <pubDate>Sun, 01 Mar 2020 06:00:40 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-340/</guid>
+      <description>&lt;p&gt;全局搜索字段所在位置&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
+SELECT COLUMN_NAME,TABLE_SCHEMA,TABLE_NAME
+FROM information_schema.COLUMNS
+WHERE COLUMN_NAME=&amp;#39;字段名字&amp;#39;
++---------------+--------------+---------------+
+| COLUMN_NAME   | TABLE_SCHEMA | TABLE_NAME    |
++---------------+--------------+---------------+
+| contacts_name | dxxxf_v3    | fledts        |
+| contacts_name | dxxxf_v3    | losdftions     |
+| contacts_name | dxxxf_v3    | orgafsizatsdons |
+| contacts_name | pxxnf      | afdts        |
+| contacts_name | sxxmens     | lafions     |
+| contacts_name | pxxmedfs     | sgdszations |
++---------------+--------------+---------------+
+————————————————
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>centos7 安装 mysql 详解</title>
+      <link>http://localhost:1313/posts/post-342/</link>
+      <pubDate>Sat, 23 Nov 2019 11:31:43 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-342/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;查看linux系统版本 
+    &lt;div id=&#34;查看linux系统版本&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%9f%a5%e7%9c%8blinux%e7%b3%bb%e7%bb%9f%e7%89%88%e6%9c%ac&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@maruifu ~]# cat /etc/redhat-release   查看操作系统版本
+CentOS Linux release 7.6.1810 (Core) 
+[root@maruifu ~]# uname -r      查看系统内核版本
+3.10.0-957.21.3.el7.x86_64 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class=&#34;relative group&#34;&gt;下载 
+    &lt;div id=&#34;下载&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%b8%8b%e8%bd%bd&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;下载地址 : &lt;a
+  href=&#34;https://dev.mysql.com/downloads/mysql/&#34;
+    target=&#34;_blank&#34;
+  &gt;https://dev.mysql.com/downloads/mysql/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;centos7 选择 Red Hat Enterprise Linux / Oracle Linux&lt;/p&gt;
+&lt;p&gt;版本就自己根据自己系统下载就好了&lt;/p&gt;
+&lt;p&gt;可以选择 RPM Bundle 使用wget 下载 mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[root@nfs_client ~]# wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.28-1.el7.x86_64.rpm-bundle.tar
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;也可以细化下载，下载须要的mysql组件，有4个：分别是 server、client、common、libs&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Oracle必知的100道问题</title>
+      <link>http://localhost:1313/other/post-365/</link>
+      <pubDate>Thu, 04 Jan 2018 09:00:47 +0000</pubDate>
+      
+      <guid>http://localhost:1313/other/post-365/</guid>
+      <description>&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Oracle必知的100到问题 你不学一下?&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-来自小马哥的故事&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;1.Oracle安装完成后的初始口令？&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;　internal/oracle
+
+　　sys/change_on_install
+
+　　system/manager
+
+　　scott/tiger
+
+　　sysman/oem_temp
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2.ORACLE9IAS WEB CACHE的初始默认用户和密码？&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;administrator/administrator
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;3.oracle 8.0.5怎么创建数据库？&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;用orainst。如果有motif界面，可以用orainst /m。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;4.oracle 8.1.7怎么创建数据库？&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dbassist
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;5.oracle 9i 怎么创建数据库？&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dbca
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;6.oracle中的裸设备指的是什么？&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;裸设备就是绕过文件系统直接访问的储存空间。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;7.oracle如何区分 64-bit/32bit 版本？？？&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sqlplus &amp;#39;/ AS SYSDBA&amp;#39;
+
+SQL*Plus: Release 9.0.1.0.0 - Production on Mon Jul 14 17:01:09 2003
+
+(c) Copyright 2001 Oracle Corporation. All rights reserved.
+
+Connected to:
+
+Oracle9i Enterprise Edition Release 9.0.1.0.0 - Production
+
+With the Partitioning option
+
+JServer Release 9.0.1.0.0 - Production
+
+SQL&amp;gt; select * from v$version;
+
+BANNER
+
+Oracle9i Enterprise Edition Release 9.0.1.0.0 - Production
+
+PL/SQL Release 9.0.1.0.0 - Production
+
+CORE 9.0.1.0.0 Production
+
+TNS for Solaris: Version 9.0.1.0.0 - Production
+
+NLSRTL Version 9.0.1.0.0 - Production
+
+SQL&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;8.SVRMGR什么意思？&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Oracle用户和表被锁定解决方法</title>
+      <link>http://localhost:1313/posts/post-366/</link>
+      <pubDate>Wed, 27 Dec 2017 09:02:53 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-366/</guid>
+      <description>&lt;p&gt;1、用dba角色的用户登陆，进行解锁，先设置具体时间格式，以便查看具体时间&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SQL&amp;gt; alter session set nls_date_format=&amp;#39;yyyy-mm-dd hh24:mi:ss&amp;#39;;
+Session altered.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2、查看具体的被锁时间&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SQL&amp;gt; select username,lock_date from dba_users where username=&amp;#39;TEST&amp;#39;;
+USERNAME LOCK_DATE TEST 2009-03-10 08:51:03
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;3、解锁&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SQL&amp;gt; alter user test account unlock;
+User altered.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;4、查看是那个ip造成的test用户被锁&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;查看$ORACLE_HOME/network/admin/log/listener.log日志
+10-MAR-2009 08:51:03 * (CONNECT_DATA=(SID=lhoms)(SERVER=DEDICATED)(CID=(PROGRAM=oracle)(HOST=omstestdb)(USER=oraoms))) * (ADDRESS=(PROTOCOL=tcp)(HOST=10.69.1.11)(PORT=49434)) * establish * lhoms * 0
+10-MAR-2009 08:51:03 * (CONNECT_DATA=(SID=lhoms)(SERVER=DEDICATED)(CID=(PROGRAM=oracle)(HOST=omstestdb)(USER=oraoms))) * (ADDRESS=(PROTOCOL=tcp)(HOST=10.69.1.11)(PORT=49435)) * establish * lhoms * 0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样可知是上面10.69.1.11的ip尝试多次失败登陆造成的被锁 注： 一般数据库默认是10次尝试失败后锁住用户&lt;/p&gt;
+&lt;p&gt;1、查看FAILED_LOGIN_ATTEMPTS的值&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;select * from dba_profiles where RESOURCE_NAME = &amp;#39;FAILED_LOGIN_ATTEMPTS&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2、修改为30次&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;alter profile default limit FAILED_LOGIN_ATTEMPTS 30;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;3、修改为无限次（为安全起见，不建议使用）&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Oracle用户密码过期的处理方法</title>
+      <link>http://localhost:1313/posts/post-367/</link>
+      <pubDate>Wed, 27 Dec 2017 08:53:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-367/</guid>
+      <description>&lt;p&gt;受影响版本：Oracle11g以上版本。&lt;/p&gt;
+&lt;p&gt;导致密码消失的原因：Oracle 11g中默认的DEFAULT概要文件中口令有效期PASSWORD_LIFE_TIME默认值为180天。&lt;/p&gt;
+&lt;p&gt;当以客户端登陆Oracle提示ORA-28002，则基本可以确定登陆帐号已过有效期，使用具有DBA权限的帐号重置该帐号密码即可。&lt;/p&gt;
+&lt;p&gt;解决方法：&lt;/p&gt;
+&lt;p&gt;以下步骤以具有DBA权限用户操作&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;1.查看口令失效用户的profile文件 
+    &lt;div id=&#34;1查看口令失效用户的profile文件&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#1%e6%9f%a5%e7%9c%8b%e5%8f%a3%e4%bb%a4%e5%a4%b1%e6%95%88%e7%94%a8%e6%88%b7%e7%9a%84profile%e6%96%87%e4%bb%b6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SQL&amp;gt;SELECT username,profile FROM dba_users;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;EM：服务器&amp;gt;用户，查看口令失效的用户对应的概要文件，这里假设为DEFAULT，下同。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;2.查看对应的概要文件的口令有效期设置 
+    &lt;div id=&#34;2查看对应的概要文件的口令有效期设置&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#2%e6%9f%a5%e7%9c%8b%e5%af%b9%e5%ba%94%e7%9a%84%e6%a6%82%e8%a6%81%e6%96%87%e4%bb%b6%e7%9a%84%e5%8f%a3%e4%bb%a4%e6%9c%89%e6%95%88%e6%9c%9f%e8%ae%be%e7%bd%ae&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SQL&amp;gt;SELECT * FROM dba_profiles WHERE profile=&amp;#39;DEFAULT&amp;#39; AND resource_name=&amp;#39;PASSWORD_LIFE_TIME&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;EM：服务器&amp;gt;概要文件&amp;gt;选择刚刚查到的概要文件DEFAULT&amp;gt;查看，查看口令下面的有效期值。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;3.将口令有效期默认值180天修改成“无限制” 
+    &lt;div id=&#34;3将口令有效期默认值180天修改成无限制&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#3%e5%b0%86%e5%8f%a3%e4%bb%a4%e6%9c%89%e6%95%88%e6%9c%9f%e9%bb%98%e8%ae%a4%e5%80%bc180%e5%a4%a9%e4%bf%ae%e6%94%b9%e6%88%90%e6%97%a0%e9%99%90%e5%88%b6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SQL&amp;gt;ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;EM：服务器&amp;gt;概要文件&amp;gt;选择刚刚查到的概要文件DEFAULT&amp;gt;编辑&amp;gt;口令，在有效期输入或选择你需要的值，保存。&lt;/p&gt;
+&lt;p&gt;该参数修改实时生效。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>第一次和SQLite接触</title>
+      <link>http://localhost:1313/other/post-402/</link>
+      <pubDate>Tue, 10 Oct 2017 00:56:48 +0000</pubDate>
+      
+      <guid>http://localhost:1313/other/post-402/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;第一次使用SQlite. 
+    &lt;div id=&#34;第一次使用sqlite&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%ac%ac%e4%b8%80%e6%ac%a1%e4%bd%bf%e7%94%a8sqlite&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如此神奇的数据库&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-来自小马哥的故事&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;要使用java程序连接SQLite，并与SQLite进行数据存取操作，必须在系统上设置SQLite JDBC驱动程序和安装Java JDK。按照以下步骤进行：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从sqlite-jdbc存储库下载最新版本的 ***&lt;a
+  href=&#34;http://bitbucket.org/xerial/sqlite-jdbc/downloads&#34;
+    target=&#34;_blank&#34;
+  &gt;sqlite-jdbc-(VERSION).jar&lt;/a&gt;***。&lt;/li&gt;
+&lt;li&gt;将下载的jar文件添加到类路径。&lt;/li&gt;
+&lt;li&gt;使用java连接到SQLite数据库。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;连接到SQLite数据库 
+    &lt;div id=&#34;连接到sqlite数据库&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e8%bf%9e%e6%8e%a5%e5%88%b0sqlite%e6%95%b0%e6%8d%ae%e5%ba%93&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;打开Eclipse IDE，创建一个JAVA工程：JavaWithSQLite，下载所需的sqlite-jdbc-(VERSION).jar(下载地址： &lt;strong&gt;&lt;a
+  href=&#34;http://bitbucket.org/xerial/sqlite-jdbc/downloads&#34;
+    target=&#34;_blank&#34;
+  &gt;http://bitbucket.org/xerial/sqlite-jdbc/downloads/&lt;/a&gt;&lt;/strong&gt; 或者 &lt;strong&gt;&lt;a
+  href=&#34;http://mvnrepository.com/artifact/org.xerial/sqlite-jdbc&#34;
+    target=&#34;_blank&#34;
+  &gt;http://mvnrepository.com/artifact/org.xerial/sqlite-jdbc&lt;/a&gt;&lt;/strong&gt; )，并将它放入到项目的类库中。&lt;/p&gt;
+&lt;p&gt;使用以下代码使用Java编程语言连接到SQLite数据库，首先创建一个类：ConnectSQLite.java，其代码如下所示 -&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; cn.maruifu.sqlite;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; java.sql.Connection;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; java.sql.DriverManager;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; java.sql.SQLException;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ConnectSQLite&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;     * Connect to a sample database
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;     */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;connect&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Connection conn &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;// db parameters&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            String url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jdbc:sqlite:D:/sqlite/java-sqlite.db&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;// create a connection to the database&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            conn &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; DriverManager.&lt;span style=&#34;color:#a6e22e&#34;&gt;getConnection&lt;/span&gt;(url);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Connection to SQLite has been established.&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; (SQLException e) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(e.&lt;span style=&#34;color:#a6e22e&#34;&gt;getMessage&lt;/span&gt;());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;finally&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (conn &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    conn.&lt;span style=&#34;color:#a6e22e&#34;&gt;close&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            } &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; (SQLException ex) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(ex.&lt;span style=&#34;color:#a6e22e&#34;&gt;getMessage&lt;/span&gt;());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;     * @param args
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;     *            the command line arguments
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;     */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; args) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        connect();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行上面代码后，会创建一个文件：D:/sqlite/java-sqlite.db，并与数据库java-sqlite.db连接。 
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;alt&#34; src=&#34;https://img.maruifu.com/images/blog/2017/10/243rdgsdckhi3rmvsmeaqnmua9.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;alt&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

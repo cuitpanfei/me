@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>架构设计 on CUITPF</title>
+    <link>http://localhost:1313/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</link>
+    <description>Recent content in 架构设计 on CUITPF</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Tue, 10 Jan 2023 07:05:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SpringBoot &#43; MDC 实现全链路调用日志跟踪</title>
+      <link>http://localhost:1313/posts/post-219/</link>
+      <pubDate>Tue, 10 Jan 2023 07:05:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-219/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;MDC 介绍 
+    &lt;div id=&#34;mdc-介绍&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#mdc-%e4%bb%8b%e7%bb%8d&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;MDC（Mapped Diagnostic Context，映射调试上下文）是 log4j 、logback及log4j2 提供的一种方便在多线程条件下记录日志的功能。&lt;strong&gt;MDC&lt;/strong&gt; 可以看成是一个与&lt;strong&gt;当前线程绑定的哈希表&lt;/strong&gt;，可以往其中添加键值对。MDC 中包含的内容可以&lt;strong&gt;被同一线程中执行的代码所访问&lt;/strong&gt;。当前线程的子线程会继承其父线程中的 MDC 的内容。当需要记录日志时，只需要从 MDC 中获取所需的信息即可。MDC 的内容则由程序在适当的时候保存进去。对于一个 Web 应用来说，通常是在请求被处理的最开始保存这些数据。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;API 说明 
+    &lt;div id=&#34;api-说明&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#api-%e8%af%b4%e6%98%8e&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;clear() =&amp;gt; 移除所有 MDC&lt;/li&gt;
+&lt;li&gt;get (String key) =&amp;gt; 获取当前线程 MDC 中指定 key 的值&lt;/li&gt;
+&lt;li&gt;getContext() =&amp;gt; 获取当前线程 MDC 的 MDC&lt;/li&gt;
+&lt;li&gt;put(String key, Object o) =&amp;gt; 往当前线程的 MDC 中存入指定的键值对&lt;/li&gt;
+&lt;li&gt;remove(String key) =&amp;gt; 删除当前线程 MDC 中指定的键值对&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;MDC 使用 
+    &lt;div id=&#34;mdc-使用&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#mdc-%e4%bd%bf%e7%94%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Constants.TRACE_ID = &amp;ldquo;traceId&amp;rdquo;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Spring中@Conditional通过条件来控制bean的注册</title>
+      <link>http://localhost:1313/posts/post-223/</link>
+      <pubDate>Fri, 23 Dec 2022 16:06:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-223/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;Spring对配置类的处理主要分为2个阶段 
+    &lt;div id=&#34;spring对配置类的处理主要分为2个阶段&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#spring%e5%af%b9%e9%85%8d%e7%bd%ae%e7%b1%bb%e7%9a%84%e5%a4%84%e7%90%86%e4%b8%bb%e8%a6%81%e5%88%86%e4%b8%ba2%e4%b8%aa%e9%98%b6%e6%ae%b5&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;配置类解析阶段 
+    &lt;div id=&#34;配置类解析阶段&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e9%85%8d%e7%bd%ae%e7%b1%bb%e8%a7%a3%e6%9e%90%e9%98%b6%e6%ae%b5&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;会得到一批配置类的信息，和一些需要注册的bean&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;bean注册阶段 
+    &lt;div id=&#34;bean注册阶段&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#bean%e6%b3%a8%e5%86%8c%e9%98%b6%e6%ae%b5&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;将配置类解析阶段得到的配置类和需要注册的bean注册到spring容器中&lt;/p&gt;
+&lt;p&gt;看一下什么是配置类,类中有下面任意注解之一的就属于配置类：&lt;/p&gt;
+&lt;p&gt;类上有@Compontent注解，@Configuration注解，@CompontentScan注解，@Import注解，@ImportResource注解以及类中有@Bean标注的方法 的都是配置类&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;判断一个类是不是一个配置类，是否的是下面这个方法，有兴趣的可以看一下：&lt;/p&gt;
+&lt;p&gt;org.springframework.context.annotation.ConfigurationClassUtils#isConfigurationCandidate&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;spring中处理这2个过程会循环进行，直到完成所有配置类的解析及所有bean的注册。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Spring对配置类处理过程 
+    &lt;div id=&#34;spring对配置类处理过程&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#spring%e5%af%b9%e9%85%8d%e7%bd%ae%e7%b1%bb%e5%a4%84%e7%90%86%e8%bf%87%e7%a8%8b&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;源码位置 
+    &lt;div id=&#34;源码位置&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%ba%90%e7%a0%81%e4%bd%8d%e7%bd%ae&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;org.springframework.context.annotation.ConfigurationClassPostProcessor#processConfigBeanDefinitions&lt;/code&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>十年老架构师总结：性能优化其实不难，记住这十条策略就够了</title>
+      <link>http://localhost:1313/posts/post-249/</link>
+      <pubDate>Wed, 04 May 2022 11:09:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-249/</guid>
+      <description>&lt;p&gt;我们聊了性能优化的六大原则。原则有了，但是在针对实际的性能问题的时候，用什么样的解决方案才可以提升性能呢？这就需要你了解&lt;strong&gt;具体的优化策略&lt;/strong&gt;了。&lt;/p&gt;
+&lt;p&gt;现实中的性能问题和具体领域千差万别，我也不可能面面俱到。但是为了帮助你理解，我总结了十大常用的优化策略。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;1620&#34; src=&#34;https://img.maruifu.com/images/2022/05/04/162071412d1a10d2f42d.jpg&#34;&gt;
+
+  
+    &lt;figcaption&gt;1620&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;我将这十大策略分成五个类别，每个类别对应两个相关策略，帮助你掌握。这五个类别是：时空相互转换、并行 / 异步操作、预先 / 延后处理、缓存 / 批量合并、算法设计和数据结构。我们现在一个个来讲。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;一、时空转换 
+    &lt;div id=&#34;一时空转换&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%b8%80%e6%97%b6%e7%a9%ba%e8%bd%ac%e6%8d%a2&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;第一个策略类别是“时空转换”。我们看科幻电影和小说的时候，经常会看到时空转换这个题材。性能优化里面有两个策略恰好组成了这个类别，包括“用时间换空间”和“用空间换 时间”这两个看似互相对立的策略。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 用时间换空间&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;用时间换空间的策略，出发点是内存和存储这样的“空间”资源，有时会成为最稀缺的资源，所以需要尽量减少占用的空间。比如，一个系统的最大性能瓶颈如果是内存使用量，那么减少内存的使用就是最重要的性能优化。&lt;/p&gt;
+&lt;p&gt;这个策略具体的操作方法有几种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;改变应用程序本身的数据结构或者数据格式，减少需要存储的数据的大小；&lt;/li&gt;
+&lt;li&gt;想方设法压缩存在内存中的数据，比如采用某种压缩算法，真正使用时再解压缩；&lt;/li&gt;
+&lt;li&gt;把一些内存数据，存放到外部的、更加便宜的存储系统里面，到需要时再取回来。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些节省内存空间的方法，一般都需要付出时间的代价。&lt;/p&gt;
+&lt;p&gt;除了内存，还有一种常见的场景是，降低数据的大小来方便网络传输和外部存储。压缩的方法和算法有很多种， 比如现在比较流行的 ZStandard（ZSTD）和 LZ4。这些算法之间有空间和时间的取舍。&lt;/p&gt;
+&lt;p&gt;衡量任何压缩算法，基本上看三个指标：&lt;strong&gt;压缩比例&lt;/strong&gt;、&lt;strong&gt;压缩速度&lt;/strong&gt;以及&lt;strong&gt;使用内存&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如果系统的瓶颈在网络传输速度或者存储空间大小上，那就尽量采取高压缩比的算法，这样用时间来换空间，就能够节省时间或者其他方面的成本。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 用空间换时间&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;“用空间换时间”就是对“用时间换空间”策略反其道而行之。有些场景下，时间和速度更加重要，但是空间尚有富余，这时我们就可以考虑用空间来换时间。&lt;/p&gt;
+&lt;p&gt;这里要注意的一点是，我们后面还会讲一条关于使用缓存的策略。虽然缓存的策略理论上也是一种“空间换时间”的方式，但我们在这里把它分开来讲，这是因为缓存策略的“空间”定义与一般的“空间换时间”不同。一般来讲，“缓存”使用的空间，和原来的空间不在同一个层次上，添加的缓存往往比原来的空间高出一个档次。而我们这里“空间换时间”的策略，里面的“空间”是和原来的空间相似的空间。&lt;/p&gt;
+&lt;p&gt;互联网的服务往往规模很大，比如全国的服务甚至是全球的服务。用户分布在各地，它们对访问时间的要求很高，这就要求被访问的数据和服务，要尽量放在离他们很近的地方。“空间换时间”就是对数据和服务进行多份拷贝，尽可能地完美覆盖大多数的用户。我们前面讲过的 CDN 内容分发网络技术就可以归类于此。&lt;/p&gt;
+&lt;p&gt;其实我们部署的任何大规模系统，都或多或少地采用了用空间换时间的策略，比如在集群和服务器间进行负载均衡，就是同时用很多个服务器（空间）来换取延迟的减少（时间）。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;二、预先和延后处理 
+    &lt;div id=&#34;二预先和延后处理&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%ba%8c%e9%a2%84%e5%85%88%e5%92%8c%e5%bb%b6%e5%90%8e%e5%a4%84%e7%90%86&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;优化策略的第二大类是“预先和延后处理”，这一类别也有两个互相对立的策略。一个是预先或者提前处理，另外一个是延后或者惰性处理。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. 预先 / 提前处理&lt;/strong&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Seata--分布式事务</title>
+      <link>http://localhost:1313/posts/post-281/</link>
+      <pubDate>Sun, 29 Aug 2021 14:39:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-281/</guid>
+      <description>&lt;p&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%BE%AE%E6%9C%8D%E5%8A%A1&#34;&gt;微服务&lt;/a&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1&#34;&gt;分布式事务&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;&lt;strong&gt;分布式事务基础&lt;/strong&gt; 
+    &lt;div id=&#34;分布式事务基础&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%88%86%e5%b8%83%e5%bc%8f%e4%ba%8b%e5%8a%a1%e5%9f%ba%e7%a1%80&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;&lt;strong&gt;事务&lt;/strong&gt; 
+    &lt;div id=&#34;事务&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%ba%8b%e5%8a%a1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;事务指的就是一个操作单元，在这个操作单元中的所有操作最终要保持一致的行为，要么所有操作都成功，要么所有的操作都被撤销。简单地说，事务提供一种“要么什么都不做，要么做全套”机制。&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;&lt;strong&gt;本地事务&lt;/strong&gt; 
+    &lt;div id=&#34;本地事务&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%9c%ac%e5%9c%b0%e4%ba%8b%e5%8a%a1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;本地事物其实可以认为是数据库提供的事务机制。说到数据库事务就不得不说，数据库事务中的四大特性:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A:原子性(Atomicity)，一个事务中的所有操作，要么全部完成，要么全部不完成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;C:一致性(Consistency)，在一个事务执行之前和执行之后数据库都必须处于一致性状态&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I:隔离性(Isolation)，在并发环境中，当不同的事务同时操作相同的数据时，事务之间互不影响&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;D:持久性(Durability)，指的是只要事务成功结束，它对数据库所做的更新就必须永久的保存下来&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;数据库事务在实现时会将一次事务涉及的所有操作全部纳入到一个不可分割的执行单元，该执行单元中 的所有操作要么都成功，要么都失败，只要其中任一操作执行失败，都将导致整个事务的回滚&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;&lt;strong&gt;分布式事务&lt;/strong&gt; 
+    &lt;div id=&#34;分布式事务&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%88%86%e5%b8%83%e5%bc%8f%e4%ba%8b%e5%8a%a1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;分布式事务指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Nacos Config--服务配置</title>
+      <link>http://localhost:1313/posts/post-282/</link>
+      <pubDate>Sun, 29 Aug 2021 08:46:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-282/</guid>
+      <description>&lt;p&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%BE%AE%E6%9C%8D%E5%8A%A1&#34;&gt;微服务&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;服务配置中心介绍 
+    &lt;div id=&#34;服务配置中心介绍&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%9c%8d%e5%8a%a1%e9%85%8d%e7%bd%ae%e4%b8%ad%e5%bf%83%e4%bb%8b%e7%bb%8d&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;首先我们来看一下,微服务架构下关于配置文件的一些问题:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;配置文件相对分散。在一个微服务架构下，配置文件会随着微服务的增多变的越来越多，而且分散 在各个微服务中，不好统一配置和管理。&lt;/li&gt;
+&lt;li&gt;配置文件无法区分环境。微服务项目可能会有多个环境，例如:测试环境、预发布环境、生产环 境。每一个环境所使用的配置理论上都是不同的，一旦需要修改，就需要我们去各个微服务下手动 维护，这比较困难。&lt;/li&gt;
+&lt;li&gt;配置文件无法实时更新。我们修改了配置文件之后，必须重新启动微服务才能使配置生效，这对一 个正在运行的项目来说是非常不友好的。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;基于上面这些问题，我们就需要&lt;strong&gt;配置中心&lt;/strong&gt;的加入来解决这些问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;配置中心的思路是:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;首先把项目中各种配置全部都放到一个集中的地方进行统一管理，并提供一套标准的接口。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当各个服务需要获取配置的时候，就来配置中心的接口拉取自己的配置。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当配置中心中的各种参数有更新的时候，也能通知到各个服务实时的过来同步最新的信息，使之动态更新。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;当加入了服务配置中心之后，我们的系统架构图会变成下面这样&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;截屏2021-08-29 下午4.23.36&#34; src=&#34;https://img.maruifu.com/images/2021/08/29/2021-08-29-4.23.36.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;截屏2021-08-29 下午4.23.36&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;在业界常见的服务配置中心，有下面这些:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Apollo&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Apollo是由携程开源的分布式配置中心。特点有很多，比如:配置更新之后可以实时生效，支持灰度发 布功能，并且能对所有的配置进行版本管理、操作审计等功能，提供开放平台API。并且资料也写的很 详细。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Disconf&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Disconf是由百度开源的分布式配置中心。它是基于Zookeeper来实现配置变更后实时通知和生效的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SpringCloud Confifig&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是Spring Cloud中带的配置中心组件。它和Spring是无缝集成，使用起来非常方便，并且它的配置存 储支持Git。不过它没有可视化的操作界面，配置的生效也不是实时的，需要重启或去刷新。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Nacos&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是SpingCloud alibaba技术栈中的一个组件，前面我们已经使用它做过服务注册中心。其实它也集成 了服务配置的功能，我们可以直接使用它作为服务配置中心。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Nacos Config 入门 
+    &lt;div id=&#34;nacos-config-入门&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#nacos-config-%e5%85%a5%e9%97%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;使用nacos作为配置中心，其实就是将nacos当做一个服务端，将各个微服务看成是客户端，我们将各个微服务的配置文件统一存放在nacos上，然后各个微服务从nacos上拉取配置即可。&lt;/p&gt;
+&lt;p&gt;接下来我们以商品微服务为例，学习nacos confifig的使用。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SMS--短信服务</title>
+      <link>http://localhost:1313/posts/post-283/</link>
+      <pubDate>Sun, 29 Aug 2021 08:20:29 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-283/</guid>
+      <description>&lt;p&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%BE%AE%E6%9C%8D%E5%8A%A1&#34;&gt;微服务&lt;/a&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E7%9F%AD%E4%BF%A1&#34;&gt;短信&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;短信服务介绍 
+    &lt;div id=&#34;短信服务介绍&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%9f%ad%e4%bf%a1%e6%9c%8d%e5%8a%a1%e4%bb%8b%e7%bb%8d&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;短信服务（Short Message Service）是阿里云为用户提供的一种通信服务的能力。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;产品优势：覆盖全面、高并发处理、消息堆积处理、开发管理简单、智能监控调度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;产品功能：短信通知、短信验证码、推广短信、异步通知、数据统计&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;应用场景：短信验证码、系统信息推送、推广短信等&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;截屏2021-08-29 下午1.03.56&#34; src=&#34;https://img.maruifu.com/images/2021/08/29/2021-08-29-1.03.56.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;截屏2021-08-29 下午1.03.56&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;短信服务使用 
+    &lt;div id=&#34;短信服务使用&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%9f%ad%e4%bf%a1%e6%9c%8d%e5%8a%a1%e4%bd%bf%e7%94%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;接下来,我们使用短信验证码功能来演示短信服务的使用。流程如下:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;截屏2021-08-29 下午1.04.52&#34; src=&#34;https://img.maruifu.com/images/2021/08/29/2021-08-29-1.04.52.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;截屏2021-08-29 下午1.04.52&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;准备工作 
+    &lt;div id=&#34;准备工作&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;实名认证 
+    &lt;div id=&#34;实名认证&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%ae%9e%e5%90%8d%e8%ae%a4%e8%af%81&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;&lt;a
+  href=&#34;https://help.aliyun.com/document&#34;
+    target=&#34;_blank&#34;
+  &gt;https://help.aliyun.com/document&lt;/a&gt;_detail/48263.html?spm=5176.11533457.J_1089570.9.15da5333ZUkUdR&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Sleuth--链路追踪</title>
+      <link>http://localhost:1313/posts/post-296/</link>
+      <pubDate>Sat, 15 May 2021 15:05:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-296/</guid>
+      <description>&lt;p&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%BE%AE%E6%9C%8D%E5%8A%A1&#34;&gt;微服务&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;链路追踪介绍 
+    &lt;div id=&#34;链路追踪介绍&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e9%93%be%e8%b7%af%e8%bf%bd%e8%b8%aa%e4%bb%8b%e7%bb%8d&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;在大型系统的微服务化构建中，一个系统被拆分成了许多模块。这些模块负责不同的功能，组合成系 统，最终可以提供丰富的功能。在这种架构中，一次请求往往需要涉及到多个服务。互联网应用构建在 不同的软件模块集上，这些软件模块，有可能是由不同的团队开发、可能使用不同的编程语言来实现、 有可能布在了几千台服务器，横跨多个不同的数据中心，也就意味着这种架构形式也会存在一些问题:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如何快速发现问题?&lt;/li&gt;
+&lt;li&gt;如何判断故障影响范围?&lt;/li&gt;
+&lt;li&gt;如何梳理服务依赖以及依赖的合理性?&lt;/li&gt;
+&lt;li&gt;如何分析链路性能问题以及实时容量规划?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;链路追踪介绍&#34; src=&#34;https://img.maruifu.com/images/2021/05/15/2021-05-15-10.36.34.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;链路追踪介绍&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;分布式链路追踪(Distributed Tracing)，就是将一次分布式请求还原成调用链路，进行日志记录，性 能监控并将一次分布式请求的调用情况集中展示。比如各个服务节点上的耗时、请求具体到达哪台机器 上、每个服务节点的请求状态等等。&lt;/p&gt;
+&lt;p&gt;常见的链路追踪技术有下面这些:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;cat&lt;/strong&gt; 由大众点评开源，基于Java开发的实时应用监控平台，包括实时应用监控，业务监控 。 集成 方案是通过代码埋点的方式来实现监控，比如: 拦截器，过滤器等。 对代码的侵入性很大，集成 成本较高。风险较大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;zipkin&lt;/strong&gt; 由Twitter公司开源，开放源代码分布式的跟踪系统，用于收集服务的定时数据，以解决微 服务架构中的延迟问题，包括:数据的收集、存储、查找和展现。该产品结合spring-cloud-sleuth 使用较为简单， 集成很方便， 但是功能较简单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pinpoint&lt;/strong&gt; :Pinpoint是韩国人开源的基于字节码注入的调用链分析，以及应用监控分析工具。特点 是支持多种插件，UI功能强大，接入端无代码侵入。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;skywalking&lt;/strong&gt;:SkyWalking是本土开源的基于字节码注入的调用链分析，以及应用监控分析工具。 特点是支持多种插件，UI功能较强，接入端无代码侵入。目前已加入Apache孵化器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sleuth&lt;/strong&gt;:SpringCloud 提供的分布式系统中链路追踪解决方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意:SpringCloud alibaba&lt;/strong&gt;技术栈中并没有提供自己的链路追踪技术的，我们可以采用&lt;strong&gt;Sleuth +Zinkin&lt;/strong&gt;来做链路追踪解决方案&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Sleuth入门 
+    &lt;div id=&#34;sleuth入门&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#sleuth%e5%85%a5%e9%97%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;Sleuth介绍 
+    &lt;div id=&#34;sleuth介绍&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#sleuth%e4%bb%8b%e7%bb%8d&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;SpringCloud Sleuth主要功能就是在分布式系统中提供追踪解决方案。它大量借用了Google Dapper的 设计， 先来了解一下Sleuth中的术语和相关概念。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Gateway--服务网关</title>
+      <link>http://localhost:1313/posts/post-304/</link>
+      <pubDate>Tue, 02 Feb 2021 12:58:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-304/</guid>
+      <description>&lt;p&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%BE%AE%E6%9C%8D%E5%8A%A1&#34;&gt;微服务&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;网关简介 
+    &lt;div id=&#34;网关简介&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%bd%91%e5%85%b3%e7%ae%80%e4%bb%8b&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;大家都都知道在微服务架构中，一个系统会被拆分为很多个微服务。那么作为客户端要如何去调用这么 多的微服务呢?如果没有网关的存在，我们只能在客户端记录每个微服务的地址，然后分别去调用。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;网关简介&#34; src=&#34;https://img.maruifu.com/images/2021/02/02/2021-02-01-3.50.40.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;网关简介&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这样的架构，会存在着诸多的问题:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;客户端多次请求不同的微服务，增加客户端代码或配置编写的复杂性&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;认证复杂，每个服务都需要独立认证。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;存在跨域请求，在一定场景下处理相对复杂。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上面的这些问题可以借助&lt;strong&gt;API网关&lt;/strong&gt;来解决。 所谓的API网关，就是指系统的&lt;strong&gt;统一入口&lt;/strong&gt;，它封装了应用程序的内部结构，为客户端提供统一服务，一些与业务本身功能无关的公共逻辑可以在这里实现，诸如认证、鉴权、监控、路由转发等等。 添加上API网关之后，系统的架构图变成了如下所示:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;API网关&#34; src=&#34;https://img.maruifu.com/images/2021/02/02/image-20210201155346655.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;API网关&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;我们也可以观察下，我们现在的整体架构图:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;整体架构图&#34; src=&#34;https://img.maruifu.com/images/2021/02/02/image-20210201155428549.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;整体架构图&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;在业界比较流行的网关，有下面这些:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Ngnix+lua&lt;/strong&gt;:使用nginx的反向代理和负载均衡可实现对api服务器的负载均衡及高可用，lua是一 种脚本语言,可以来编写一些简单的逻辑, nginx支持lua脚本&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Kong&lt;/strong&gt;:基于Nginx+Lua开发，性能高，稳定，有多个可用的插件(限流、鉴权等等)可以开箱即用。 问题:只支持Http协议;二次开发，自由扩展困难;提供管理API，缺乏更易用的管控、配置 方式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Zuul&lt;/strong&gt; :Netflflix开源的网关，功能丰富，使用JAVA开发，易于二次开发 问题:缺乏管控，无法动 态配置;依赖组件较多;处理Http请求依赖的是Web容器，性能不如Nginx&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Spring Cloud Gateway&lt;/strong&gt;:Spring公司为了替换Zuul而开发的网关服务，将在下面具体介绍。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;**注意:**SpringCloud alibaba技术栈中并没有提供自己的网关，我们可以采用Spring Cloud Gateway来做网关&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Gateway简介 
+    &lt;div id=&#34;gateway简介&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#gateway%e7%ae%80%e4%bb%8b&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;Spring Cloud Gateway是Spring公司基于Spring 5.0，Spring Boot 2.0 和 Project Reactor 等技术开发 的网关，它旨在为微服务架构提供一种简单有效的统一的 API 路由管理方式。它的目标是替代Netflflix Zuul，其不仅提供统一的路由方式，并且基于 Filter 链的方式提供了网关基本的功能，例如:安全，监 控和限流。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Sentinel--服务容错</title>
+      <link>http://localhost:1313/posts/post-305/</link>
+      <pubDate>Fri, 29 Jan 2021 13:57:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-305/</guid>
+      <description>&lt;p&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%BE%AE%E6%9C%8D%E5%8A%A1&#34;&gt;微服务&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;高并发带来的问题 
+    &lt;div id=&#34;高并发带来的问题&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e9%ab%98%e5%b9%b6%e5%8f%91%e5%b8%a6%e6%9d%a5%e7%9a%84%e9%97%ae%e9%a2%98&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;在微服务架构中，我们将业务拆分成一个个的服务，服务与服务之间可以相互调用，但是由于网络原因 或者自身的原因，服务并不能保证服务的100%可用，如果单个服务出现问题，调用这个服务就会出现 网络延迟，此时若有大量的网络涌入，会形成任务堆积，最终导致服务瘫痪。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;接下来，我们来模拟一个高并发的场景&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;编写java代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@RestController
+@Slf4j
+public class OrderController2 {
+    @Autowired
+    private OrderService orderService;
+    @Autowired
+    private ProductService productService;
+
+    @RequestMapping(&amp;#34;/order/prod/{pid}&amp;#34;)
+    public Order order(@PathVariable(&amp;#34;pid&amp;#34;) Integer pid) {
+        log.info(&amp;#34;接收到{}号商品的下单请求,接下来调用商品微服务查询此商品信息&amp;#34;, pid);//调用商品微服 务,查询商品信息
+        Product product = productService.findByPid(pid);
+        log.info(&amp;#34;查询到{}号商品的信息,内容是:{}&amp;#34;, pid, JSON.toJSONString(product)); //模拟一次网络延时
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //下单(创建订单)
+        Order order = new Order();
+        order.setUid(1);
+        order.setUsername(&amp;#34;测试用户&amp;#34;);
+        order.setPid(pid);
+        order.setPname(product.getPname());
+        order.setPprice(product.getPprice());
+        order.setNumber(1);
+        //为了不产生太多垃圾数据,暂时不做订单保存
+        //orderService.createOrder(order);
+        log.info(&amp;#34;创建订单成功,订单信息为{}&amp;#34;, JSON.toJSONString(order));
+        return order;
+    }
+
+    @RequestMapping(&amp;#34;/order/message&amp;#34;)
+    public String message() {
+        return &amp;#34;高并发下的问题测试&amp;#34;;
+    }
+}
+ 
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;修改配置文件中tomcat的并发数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;server:
+ #端口
+ port: 8091
+ #tomcat配置
+ tomcat:
+  #tomcat的最大并发值修改为10,默认是200
+ 	max-threads: 10 #tomcat的最大并发值修改为10,默认是200
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;接下来使用压测工具,对请求进行压力测试&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下载地址https://jmeter.apache.org/&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Nacos Discovery--服务治理</title>
+      <link>http://localhost:1313/posts/post-306/</link>
+      <pubDate>Wed, 27 Jan 2021 14:06:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-306/</guid>
+      <description>&lt;p&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%BE%AE%E6%9C%8D%E5%8A%A1&#34;&gt;微服务&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;服务治理介绍 
+    &lt;div id=&#34;服务治理介绍&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%9c%8d%e5%8a%a1%e6%b2%bb%e7%90%86%e4%bb%8b%e7%bb%8d&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;先来思考一个问题&lt;/strong&gt;？&lt;/p&gt;
+&lt;p&gt;通过上一章的操作，我们已经可以实现微服务之间的调用。但是我们把服务提供者的网络地址(ip，端 口)等硬编码到了代码中，这种做法存在许多问题:&lt;/p&gt;
+&lt;p&gt;一旦服务提供者地址变化，就需要手工修改代码 一旦是多个服务提供者，无法实现负载均衡功能 一旦服务变得越来越多，人工维护调用关系困难&lt;/p&gt;
+&lt;p&gt;那么应该怎么解决呢， 这时候就需要通过注册中心动态的实现&lt;strong&gt;服务治理&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;&lt;strong&gt;什么是服务治理&lt;/strong&gt; 
+    &lt;div id=&#34;什么是服务治理&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%bb%80%e4%b9%88%e6%98%af%e6%9c%8d%e5%8a%a1%e6%b2%bb%e7%90%86&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;服务治理是微服务架构中最核心最基本的模块。用于实现各个微服务的&lt;strong&gt;自动化注册与发现&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;**服务注册:**在服务治理框架中，都会构建一个注册中心，每个服务单元向注册中心登记自己提供服 务的详细信息。并在注册中心形成一张服务的清单，服务注册中心需要以心跳的方式去监测清单中 的服务是否可用，如果不可用，需要在服务清单中剔除不可用的服务。&lt;/p&gt;
+&lt;p&gt;**服务发现:**服务调用方向服务注册中心咨询服务，并获取所有服务的实例清单，实现对具体服务实例的访问。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;服务治理&#34; src=&#34;https://img.maruifu.com/images/2021/01/27/image-20210127213529134.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;服务治理&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;通过上面的调用图会发现，除了微服务，还有一个组件是&lt;strong&gt;服务注册中心&lt;/strong&gt;，它是微服务架构非常重要的一 个组件，在微服务架构里主要起到了协调者的一个作用。注册中心一般包含如下几个功能:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;服务发现: 服务注册:保存服务提供者和服务调用者的信息&lt;/p&gt;
+&lt;p&gt;服务订阅:服务调用者订阅服务提供者的信息，注册中心向订阅者推送提供者的信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;服务配置:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;配置订阅:服务提供者和服务调用者订阅微服务相关的配置&lt;/li&gt;
+&lt;li&gt;配置下发:主动将配置推送给服务提供者和服务调用者&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;服务健康检测 检测服务提供者的健康情况，如果发现异常，执行服务剔除&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;&lt;strong&gt;常见的注册中心&lt;/strong&gt; 
+    &lt;div id=&#34;常见的注册中心&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%b8%b8%e8%a7%81%e7%9a%84%e6%b3%a8%e5%86%8c%e4%b8%ad%e5%bf%83&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Zookeeper&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;zookeeper是一个分布式服务框架，是Apache Hadoop 的一个子项目，它主要是用来解决分布式 应用中经常遇到的一些数据管理问题，如:统一命名服务、状态同步服务、集群管理、分布式应用 配置项的管理等。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>微服务环境搭建</title>
+      <link>http://localhost:1313/posts/post-307/</link>
+      <pubDate>Wed, 27 Jan 2021 13:27:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-307/</guid>
+      <description>&lt;p&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%BE%AE%E6%9C%8D%E5%8A%A1&#34;&gt;微服务&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我们本次是使用的电商项目中的商品、订单、用户为案例进行讲解.&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;案例准备 
+    &lt;div id=&#34;案例准备&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%a1%88%e4%be%8b%e5%87%86%e5%a4%87&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;技术选型 
+    &lt;div id=&#34;技术选型&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%8a%80%e6%9c%af%e9%80%89%e5%9e%8b&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;maven:&lt;/strong&gt; 3.3.9&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数据库:&lt;/strong&gt; MySQL 5.7&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;持久层:&lt;/strong&gt; SpingData Jpa&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;其他:&lt;/strong&gt; SpringCloud Alibaba 技术栈&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;模块设计 
+    &lt;div id=&#34;模块设计&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%a8%a1%e5%9d%97%e8%ae%be%e8%ae%a1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;springcloud-alibaba 父工程&lt;/p&gt;
+&lt;p&gt;shop-common 公共模块【实体类】&lt;/p&gt;
+&lt;p&gt;shop-user 用户微服务 【端口: 8071】&lt;/p&gt;
+&lt;p&gt;shop-product 商品微服务 【端口: 8081】&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>微服务介绍</title>
+      <link>http://localhost:1313/posts/post-308/</link>
+      <pubDate>Mon, 25 Jan 2021 13:42:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-308/</guid>
+      <description>&lt;p&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%BE%AE%E6%9C%8D%E5%8A%A1&#34;&gt;微服务&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;系统架构演变 
+    &lt;div id=&#34;系统架构演变&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%b3%bb%e7%bb%9f%e6%9e%b6%e6%9e%84%e6%bc%94%e5%8f%98&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;随着互联网的发展，网站应用的规模也在不断的扩大，进而导致系统架构也在不断的进行变化。从互联网早期到现在，系统架构大体经历了下面几个过程: 单体应用架构&amp;mdash;&amp;gt;垂直应用架构&amp;mdash;&amp;gt;分布式架构&amp;mdash; &amp;gt;SOA架构&amp;mdash;&amp;gt;微服务架构，当然还有悄然兴起的Service Mesh(服务网格化)。接下来我们就来了解一下 每种系统架构是什么样子的， 以及各有什么优缺点。&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;单体应用架构 
+    &lt;div id=&#34;单体应用架构&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%8d%95%e4%bd%93%e5%ba%94%e7%94%a8%e6%9e%b6%e6%9e%84&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;互联网早期，一般的网站应用流量较小，只需一个应用，将所有功能代码都部署在一起就可以，这样可以减少开发、部署和维护的成本。&lt;/p&gt;
+&lt;p&gt;比如说一个电商系统，里面会包含很多用户管理，商品管理，订单管理，物流管理等等很多模块，我们会把它们做成一个web项目，然后部署到一台tomcat服务器上。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;单体应用架构&#34; src=&#34;https://img.maruifu.com/images/2021/01/25/2021-01-25-8.45.08.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;单体应用架构&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;项目架构简单，小型项目的话， 开发成本低&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;项目部署在一个节点上， 维护方便&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;缺点&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;全部功能集成在一个工程中，对于大型项目来讲不易开发和维护&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;项目模块之间紧密耦合，单点容错率低&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;无法针对不同模块进行针对性优化和水平扩展&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;垂直应用架构 
+    &lt;div id=&#34;垂直应用架构&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%9e%82%e7%9b%b4%e5%ba%94%e7%94%a8%e6%9e%b6%e6%9e%84&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;随着访问量的逐渐增大，单一应用只能依靠增加节点来应对，但是这时候会发现并不是所有的模块都会有比较大的访问量。&lt;/p&gt;
+&lt;p&gt;还是以上面的电商为例子， 用户访问量的增加可能影响的只是用户和订单模块， 但是对消息模块 的影响就比较小. 那么此时我们希望只多增加几个订单模块， 而不增加消息模块. 此时单体应用就做不 到了， 垂直应用就应运而生了。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>百度怎么做长文本去重的?</title>
+      <link>http://localhost:1313/other/post-373/</link>
+      <pubDate>Tue, 12 Dec 2017 02:06:27 +0000</pubDate>
+      
+      <guid>http://localhost:1313/other/post-373/</guid>
+      <description>&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（1）原创不易，互联网抄袭成风，很多原创内容在网上被抄来抄去，改来改去&lt;/p&gt;
+&lt;p&gt;（2）百度的网页库非常大，爬虫如何判断一个新网页是否与网页库中已有的网页重复呢？&lt;/p&gt;
+&lt;p&gt;这是本文要讨论的问题（尽量用大家都能立刻明白的语言和示例表述）。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-来自小马哥的故事&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;一、传统签名算法与文本完整性判断 
+    &lt;div id=&#34;一传统签名算法与文本完整性判断&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%b8%80%e4%bc%a0%e7%bb%9f%e7%ad%be%e5%90%8d%e7%ae%97%e6%b3%95%e4%b8%8e%e6%96%87%e6%9c%ac%e5%ae%8c%e6%95%b4%e6%80%a7%e5%88%a4%e6%96%ad&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;问题抛出： 
+    &lt;div id=&#34;问题抛出&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e9%97%ae%e9%a2%98%e6%8a%9b%e5%87%ba&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;（1）运维上线一个bin文件，将文件分发到4台线上机器上，如何判断bin文件全部是一致的？ （2）用户A将消息msg发送给用户B，用户B如何判断收到的msg_t就是用户A发送的msg？&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;思路： 
+    &lt;div id=&#34;思路&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%80%9d%e8%b7%af&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;一个字节一个字节的比对两个大文件或者大网页效率低，我们可以用一个签名值（例如md5值）代表一个大文件，签名值相同则认为大文件相同（先不考虑冲突率）&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;回答： 
+    &lt;div id=&#34;回答&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%9b%9e%e7%ad%94&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;（1）将bin文件取md5，将4台线上机器上的bin文件也取md5，如果5个md5值相同，说明一致 （2）用户A将msg以及消息的md5同时发送给用户B，用户B收到msg_t后也取md5，得到的值与用户A发送过来的md5值如果相同，则说明msg_t与msg相同&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1745 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IDE on CUITPF</title>
+    <link>http://localhost:1313/categories/ide/</link>
+    <description>Recent content in IDE on CUITPF</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Tue, 14 Jul 2020 12:31:51 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/ide/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>IDEA快捷键</title>
+      <link>http://localhost:1313/posts/post-322/</link>
+      <pubDate>Tue, 14 Jul 2020 12:31:51 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-322/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;（Win + Linux）快捷键 
+    &lt;div id=&#34;win--linux快捷键&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#win--linux%e5%bf%ab%e6%8d%b7%e9%94%ae&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;说明 
+    &lt;div id=&#34;说明&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e8%af%b4%e6%98%8e&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;IntelliJ IDEA 的便捷操作性，快捷键的功劳占了一大半，对于各个快捷键组合请认真对待。IntelliJ IDEA 本身的设计思维是提倡键盘优先于鼠标的，所以各种快捷键组合层出不穷，对于快捷键设置也有各种支持，对于其他 IDE 的快捷键组合也有预设模板进行支持。&lt;/p&gt;
+&lt;p&gt;关于各个快捷键的频率分类上可能每个人都有各自的看法，下面的整理也只是以我个人的使用习惯来划分的，而我应该是可以代表某一部分小众人员。但是我个人还是强烈建议你可以在我的基础上整理一份属于你的快捷键目录（删除掉多余的字眼，只保留快捷键内容），本篇文章也只是起到一个工具和引子的作用。&lt;/p&gt;
+&lt;p&gt;对于下面各个快捷键的使介绍描述也许用我个人语言翻译起来不够准确或是不全面，且在不同的文件类型上按出来的效果也可能结果不太一样,所以 &lt;strong&gt;强烈建议&lt;/strong&gt; 你自己把各个快捷键都亲自操作下体会下各个快捷键的实际用法。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;前提 
+    &lt;div id=&#34;前提&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%89%8d%e6%8f%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;IntelliJ IDEA 官方出的学习辅助插件：IDE Features Trainer：&lt;a
+  href=&#34;https://plugins.jetbrains.com/plugin/8554?pr=idea&#34;
+    target=&#34;_blank&#34;
+  &gt;https://plugins.jetbrains.com/plugin/8554?pr=idea&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ctrl 
+    &lt;div id=&#34;ctrl&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#ctrl&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F&lt;/td&gt;
+          &lt;td&gt;在当前文件进行文本查找 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + R&lt;/td&gt;
+          &lt;td&gt;在当前文件进行文本替换 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Z&lt;/td&gt;
+          &lt;td&gt;撤销 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Y&lt;/td&gt;
+          &lt;td&gt;删除光标所在行 或 删除选中的行 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + X&lt;/td&gt;
+          &lt;td&gt;剪切光标所在行 或 剪切选择内容&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + C&lt;/td&gt;
+          &lt;td&gt;复制光标所在行 或 复制选择内容&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + D&lt;/td&gt;
+          &lt;td&gt;复制光标所在行 或 复制选择内容，并把复制内容插入光标位置下面 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + W&lt;/td&gt;
+          &lt;td&gt;递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + E&lt;/td&gt;
+          &lt;td&gt;显示最近打开的文件记录列表 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + N&lt;/td&gt;
+          &lt;td&gt;根据输入的 &lt;strong&gt;类名&lt;/strong&gt; 查找类文件 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + G&lt;/td&gt;
+          &lt;td&gt;在当前文件跳转到指定行处&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + J&lt;/td&gt;
+          &lt;td&gt;插入自定义动态代码模板 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + P&lt;/td&gt;
+          &lt;td&gt;方法参数提示显示 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Q&lt;/td&gt;
+          &lt;td&gt;光标所在的变量 / 类名 / 方法名等上面（也可以在提示补充的时候按），显示文档内容&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + U&lt;/td&gt;
+          &lt;td&gt;前往当前光标所在的方法的父类的方法 / 接口定义 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + B&lt;/td&gt;
+          &lt;td&gt;进入光标所在的方法/变量的接口或是定义处，等效于 &lt;code&gt;Ctrl + 左键单击&lt;/code&gt; &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + K&lt;/td&gt;
+          &lt;td&gt;版本控制提交项目，需要此项目有加入到版本控制才可用&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + T&lt;/td&gt;
+          &lt;td&gt;版本控制更新项目，需要此项目有加入到版本控制才可用&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + H&lt;/td&gt;
+          &lt;td&gt;显示当前类的层次结构&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + O&lt;/td&gt;
+          &lt;td&gt;选择可重写的方法&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + I&lt;/td&gt;
+          &lt;td&gt;选择可继承的方法&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + +&lt;/td&gt;
+          &lt;td&gt;展开代码&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + -&lt;/td&gt;
+          &lt;td&gt;折叠代码&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + /&lt;/td&gt;
+          &lt;td&gt;注释光标所在行代码，会根据当前不同文件类型使用不同的注释符号 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + [&lt;/td&gt;
+          &lt;td&gt;移动光标到当前所在代码的花括号开始位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + ]&lt;/td&gt;
+          &lt;td&gt;移动光标到当前所在代码的花括号结束位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F1&lt;/td&gt;
+          &lt;td&gt;在光标所在的错误代码处显示错误信息 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F3&lt;/td&gt;
+          &lt;td&gt;调转到所选中的词的下一个引用位置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F4&lt;/td&gt;
+          &lt;td&gt;关闭当前编辑文件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F8&lt;/td&gt;
+          &lt;td&gt;在 Debug 模式下，设置光标当前行为断点，如果当前已经是断点则去掉断点&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F9&lt;/td&gt;
+          &lt;td&gt;执行 Make Project 操作&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F11&lt;/td&gt;
+          &lt;td&gt;选中文件 / 文件夹，使用助记符设定 / 取消书签 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F12&lt;/td&gt;
+          &lt;td&gt;弹出当前文件结构层，可以在弹出的层上直接输入，进行筛选&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Tab&lt;/td&gt;
+          &lt;td&gt;编辑窗口切换，如果在切换的过程又加按上delete，则是关闭对应选中的窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + End&lt;/td&gt;
+          &lt;td&gt;跳到文件尾&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Home&lt;/td&gt;
+          &lt;td&gt;跳到文件头&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Space&lt;/td&gt;
+          &lt;td&gt;基础代码补全，默认在 Windows 系统上被输入法占用，需要进行修改，建议修改为 &lt;code&gt;Ctrl + 逗号&lt;/code&gt; &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Delete&lt;/td&gt;
+          &lt;td&gt;删除光标后面的单词或是中文句 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + BackSpace&lt;/td&gt;
+          &lt;td&gt;删除光标前面的单词或是中文句 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 1,2,3&amp;hellip;9&lt;/td&gt;
+          &lt;td&gt;定位到对应数值的书签位置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 左键单击&lt;/td&gt;
+          &lt;td&gt;在打开的文件标题上，弹出该文件路径 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 光标定位&lt;/td&gt;
+          &lt;td&gt;按 Ctrl 不要松开，会显示光标所在的类信息摘要&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 左方向键&lt;/td&gt;
+          &lt;td&gt;光标跳转到当前单词 / 中文句的左侧开头位置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 右方向键&lt;/td&gt;
+          &lt;td&gt;光标跳转到当前单词 / 中文句的右侧开头位置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 前方向键&lt;/td&gt;
+          &lt;td&gt;等效于鼠标滚轮向前效果 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 后方向键&lt;/td&gt;
+          &lt;td&gt;等效于鼠标滚轮向后效果 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Alt 
+    &lt;div id=&#34;alt&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#alt&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + `&lt;/td&gt;
+          &lt;td&gt;显示版本控制常用操作菜单弹出层 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Q&lt;/td&gt;
+          &lt;td&gt;弹出一个提示，显示当前类的声明 / 上下文信息&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + F1&lt;/td&gt;
+          &lt;td&gt;显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + F2&lt;/td&gt;
+          &lt;td&gt;对于前面页面，显示各类浏览器打开目标选择弹出层&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + F3&lt;/td&gt;
+          &lt;td&gt;选中文本，逐个往下查找相同文本，并高亮显示&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + F7&lt;/td&gt;
+          &lt;td&gt;查找光标所在的方法 / 变量 / 类被调用的地方&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + F8&lt;/td&gt;
+          &lt;td&gt;在 Debug 的状态下，选中对象，弹出可输入计算表达式调试框，查看该输入内容的调试结果&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Home&lt;/td&gt;
+          &lt;td&gt;定位 / 显示到当前文件的 &lt;code&gt;Navigation Bar&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Enter&lt;/td&gt;
+          &lt;td&gt;IntelliJ IDEA 根据光标所在问题，提供快速修复选择，光标放在的位置不同提示的结果也不同 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Insert&lt;/td&gt;
+          &lt;td&gt;代码自动生成，如生成对象的 set / get 方法，构造函数，toString() 等 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + 左方向键&lt;/td&gt;
+          &lt;td&gt;切换当前已打开的窗口中的子视图，比如Debug窗口中有Output、Debugger等子视图，用此快捷键就可以在子视图中切换 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + 右方向键&lt;/td&gt;
+          &lt;td&gt;按切换当前已打开的窗口中的子视图，比如Debug窗口中有Output、Debugger等子视图，用此快捷键就可以在子视图中切换 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + 前方向键&lt;/td&gt;
+          &lt;td&gt;当前光标跳转到当前文件的前一个方法名位置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + 后方向键&lt;/td&gt;
+          &lt;td&gt;当前光标跳转到当前文件的后一个方法名位置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + 1,2,3&amp;hellip;9&lt;/td&gt;
+          &lt;td&gt;显示对应数值的选项卡，其中 1 是 Project 用得最多 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Shift 
+    &lt;div id=&#34;shift&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#shift&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F1&lt;/td&gt;
+          &lt;td&gt;如果有外部文档可以连接外部文档&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F2&lt;/td&gt;
+          &lt;td&gt;跳转到上一个高亮错误 或 警告位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F3&lt;/td&gt;
+          &lt;td&gt;在查找模式下，查找匹配上一个&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F4&lt;/td&gt;
+          &lt;td&gt;对当前打开的文件，使用新Windows窗口打开，旧窗口保留&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F6&lt;/td&gt;
+          &lt;td&gt;对文件 / 文件夹 重命名&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F7&lt;/td&gt;
+          &lt;td&gt;在 Debug 模式下，智能步入。断点所在行上有多个方法调用，会弹出进入哪个方法&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F8&lt;/td&gt;
+          &lt;td&gt;在 Debug 模式下，跳出，表现出来的效果跟 &lt;code&gt;F9&lt;/code&gt; 一样&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F9&lt;/td&gt;
+          &lt;td&gt;等效于点击工具栏的 &lt;code&gt;Debug&lt;/code&gt; 按钮&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F10&lt;/td&gt;
+          &lt;td&gt;等效于点击工具栏的 &lt;code&gt;Run&lt;/code&gt; 按钮&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F11&lt;/td&gt;
+          &lt;td&gt;弹出书签显示层 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + Tab&lt;/td&gt;
+          &lt;td&gt;取消缩进 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + ESC&lt;/td&gt;
+          &lt;td&gt;隐藏当前 或 最后一个激活的工具窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + End&lt;/td&gt;
+          &lt;td&gt;选中光标到当前行尾位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + Home&lt;/td&gt;
+          &lt;td&gt;选中光标到当前行头位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + Enter&lt;/td&gt;
+          &lt;td&gt;开始新一行。光标所在行下空出一行，光标定位到新行位置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + 左键单击&lt;/td&gt;
+          &lt;td&gt;在打开的文件名上按此快捷键，可以关闭当前打开文件 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + 滚轮前后滚动&lt;/td&gt;
+          &lt;td&gt;当前文件的横向滚动轴滚动 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ctrl + Alt 
+    &lt;div id=&#34;ctrl--alt&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#ctrl--alt&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + L&lt;/td&gt;
+          &lt;td&gt;格式化代码，可以对当前文件和整个包目录使用 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + O&lt;/td&gt;
+          &lt;td&gt;优化导入的类，可以对当前文件和整个包目录使用 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + I&lt;/td&gt;
+          &lt;td&gt;光标所在行 或 选中部分进行自动代码缩进，有点类似格式化&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + T&lt;/td&gt;
+          &lt;td&gt;对选中的代码弹出环绕选项弹出层 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + J&lt;/td&gt;
+          &lt;td&gt;弹出模板选择窗口，将选定的代码加入动态模板中&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + H&lt;/td&gt;
+          &lt;td&gt;调用层次&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + B&lt;/td&gt;
+          &lt;td&gt;在某个调用的方法名上使用会跳到具体的实现处，可以跳过接口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + C&lt;/td&gt;
+          &lt;td&gt;重构-快速提取常量&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + F&lt;/td&gt;
+          &lt;td&gt;重构-快速提取成员变量&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + V&lt;/td&gt;
+          &lt;td&gt;重构-快速提取变量&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + Y&lt;/td&gt;
+          &lt;td&gt;同步、刷新&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + S&lt;/td&gt;
+          &lt;td&gt;打开 IntelliJ IDEA 系统设置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + F7&lt;/td&gt;
+          &lt;td&gt;显示使用的地方。寻找被该类或是变量被调用的地方，用弹出框的方式找出来&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + F11&lt;/td&gt;
+          &lt;td&gt;切换全屏模式&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + Enter&lt;/td&gt;
+          &lt;td&gt;光标所在行上空出一行，光标定位到新行 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + Home&lt;/td&gt;
+          &lt;td&gt;弹出跟当前文件有关联的文件弹出层&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + Space&lt;/td&gt;
+          &lt;td&gt;类名自动完成&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + 左方向键&lt;/td&gt;
+          &lt;td&gt;退回到上一个操作的地方 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + 右方向键&lt;/td&gt;
+          &lt;td&gt;前进到上一个操作的地方 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + 前方向键&lt;/td&gt;
+          &lt;td&gt;在查找模式下，跳到上个查找的文件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + 后方向键&lt;/td&gt;
+          &lt;td&gt;在查找模式下，跳到下个查找的文件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + 右括号（]）&lt;/td&gt;
+          &lt;td&gt;在打开多个项目的情况下，切换下一个项目窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + 左括号（[）&lt;/td&gt;
+          &lt;td&gt;在打开多个项目的情况下，切换上一个项目窗口&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ctrl + Shift 
+    &lt;div id=&#34;ctrl--shift&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#ctrl--shift&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + F&lt;/td&gt;
+          &lt;td&gt;根据输入内容查找整个项目 或 指定目录内文件 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + R&lt;/td&gt;
+          &lt;td&gt;根据输入内容替换对应内容，范围为整个项目 或 指定目录内文件 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + J&lt;/td&gt;
+          &lt;td&gt;自动将下一行合并到当前行末尾 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Z&lt;/td&gt;
+          &lt;td&gt;取消撤销 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + W&lt;/td&gt;
+          &lt;td&gt;递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + N&lt;/td&gt;
+          &lt;td&gt;通过文件名定位 / 打开文件 / 目录，打开目录需要在输入的内容后面多加一个正斜杠 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + U&lt;/td&gt;
+          &lt;td&gt;对选中的代码进行大 / 小写轮流转换 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + T&lt;/td&gt;
+          &lt;td&gt;对当前类生成单元测试类，如果已经存在的单元测试类则可以进行选择 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + C&lt;/td&gt;
+          &lt;td&gt;复制当前文件磁盘路径到剪贴板 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + V&lt;/td&gt;
+          &lt;td&gt;弹出缓存的最近拷贝的内容管理器弹出层&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + E&lt;/td&gt;
+          &lt;td&gt;显示最近修改的文件列表的弹出层&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + H&lt;/td&gt;
+          &lt;td&gt;显示方法层次结构&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + B&lt;/td&gt;
+          &lt;td&gt;跳转到类型声明处 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + I&lt;/td&gt;
+          &lt;td&gt;快速查看光标所在的方法 或 类的定义&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + A&lt;/td&gt;
+          &lt;td&gt;查找动作 / 设置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + /&lt;/td&gt;
+          &lt;td&gt;代码块注释 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + [&lt;/td&gt;
+          &lt;td&gt;选中从光标所在位置到它的顶部中括号位置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + ]&lt;/td&gt;
+          &lt;td&gt;选中从光标所在位置到它的底部中括号位置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + +&lt;/td&gt;
+          &lt;td&gt;展开所有代码 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + -&lt;/td&gt;
+          &lt;td&gt;折叠所有代码 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + F7&lt;/td&gt;
+          &lt;td&gt;高亮显示所有该选中文本，按Esc高亮消失 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + F8&lt;/td&gt;
+          &lt;td&gt;在 Debug 模式下，指定断点进入条件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + F9&lt;/td&gt;
+          &lt;td&gt;编译选中的文件 / 包 / Module&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + F12&lt;/td&gt;
+          &lt;td&gt;编辑器最大化 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Space&lt;/td&gt;
+          &lt;td&gt;智能代码提示&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Enter&lt;/td&gt;
+          &lt;td&gt;自动结束代码，行末自动添加分号 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Backspace&lt;/td&gt;
+          &lt;td&gt;退回到上次修改的地方 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 1,2,3&amp;hellip;9&lt;/td&gt;
+          &lt;td&gt;快速添加指定数值的书签 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 左键单击&lt;/td&gt;
+          &lt;td&gt;把光标放在某个类变量上，按此快捷键可以直接定位到该类中 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 左方向键&lt;/td&gt;
+          &lt;td&gt;在代码文件上，光标跳转到当前单词 / 中文句的左侧开头位置，同时选中该单词 / 中文句 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 右方向键&lt;/td&gt;
+          &lt;td&gt;在代码文件上，光标跳转到当前单词 / 中文句的右侧开头位置，同时选中该单词 / 中文句 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 前方向键&lt;/td&gt;
+          &lt;td&gt;光标放在方法名上，将方法移动到上一个方法前面，调整方法排序 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 后方向键&lt;/td&gt;
+          &lt;td&gt;光标放在方法名上，将方法移动到下一个方法前面，调整方法排序 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Alt + Shift 
+    &lt;div id=&#34;alt--shift&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#alt--shift&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + N&lt;/td&gt;
+          &lt;td&gt;选择 / 添加 task &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + F&lt;/td&gt;
+          &lt;td&gt;显示添加到收藏夹弹出层 / 添加到收藏夹&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + C&lt;/td&gt;
+          &lt;td&gt;查看最近操作项目的变化情况列表&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + I&lt;/td&gt;
+          &lt;td&gt;查看项目当前文件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + F7&lt;/td&gt;
+          &lt;td&gt;在 Debug 模式下，下一步，进入当前方法体内，如果方法体还有方法，则会进入该内嵌的方法中，依此循环进入&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + F9&lt;/td&gt;
+          &lt;td&gt;弹出 &lt;code&gt;Debug&lt;/code&gt; 的可选择菜单&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + F10&lt;/td&gt;
+          &lt;td&gt;弹出 &lt;code&gt;Run&lt;/code&gt; 的可选择菜单&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + 左键双击&lt;/td&gt;
+          &lt;td&gt;选择被双击的单词 / 中文句，按住不放，可以同时选择其他单词 / 中文句 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + 前方向键&lt;/td&gt;
+          &lt;td&gt;移动光标所在行向上移动 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + 后方向键&lt;/td&gt;
+          &lt;td&gt;移动光标所在行向下移动 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ctrl + Shift + Alt 
+    &lt;div id=&#34;ctrl--shift--alt&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#ctrl--shift--alt&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Alt + V&lt;/td&gt;
+          &lt;td&gt;无格式黏贴 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Alt + N&lt;/td&gt;
+          &lt;td&gt;前往指定的变量 / 方法&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Alt + S&lt;/td&gt;
+          &lt;td&gt;打开当前项目设置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Alt + C&lt;/td&gt;
+          &lt;td&gt;复制参考信息&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;其他 
+    &lt;div id=&#34;其他&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%85%b6%e4%bb%96&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F2&lt;/td&gt;
+          &lt;td&gt;跳转到下一个高亮错误 或 警告位置 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F3&lt;/td&gt;
+          &lt;td&gt;在查找模式下，定位到下一个匹配处&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F4&lt;/td&gt;
+          &lt;td&gt;编辑源 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F7&lt;/td&gt;
+          &lt;td&gt;在 Debug 模式下，进入下一步，如果当前行断点是一个方法，则进入当前方法体内，如果该方法体还有方法，则不会进入该内嵌的方法中&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F8&lt;/td&gt;
+          &lt;td&gt;在 Debug 模式下，进入下一步，如果当前行断点是一个方法，则不进入当前方法体内&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F9&lt;/td&gt;
+          &lt;td&gt;在 Debug 模式下，恢复程序运行，但是如果该断点下面代码还有断点则停在下一个断点上&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F11&lt;/td&gt;
+          &lt;td&gt;添加书签 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F12&lt;/td&gt;
+          &lt;td&gt;回到前一个工具窗口 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Tab&lt;/td&gt;
+          &lt;td&gt;缩进 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ESC&lt;/td&gt;
+          &lt;td&gt;从工具窗口进入代码文件窗口 &lt;code&gt;（必备）&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;连按两次Shift&lt;/td&gt;
+          &lt;td&gt;弹出 &lt;code&gt;Search Everywhere&lt;/code&gt; 弹出层&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;官网快捷键资料 
+    &lt;div id=&#34;官网快捷键资料&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%ae%98%e7%bd%91%e5%bf%ab%e6%8d%b7%e9%94%ae%e8%b5%84%e6%96%99&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows / Linux：&lt;a
+  href=&#34;https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard.pdf&#34;
+    target=&#34;_blank&#34;
+  &gt;https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Mac OS X：&lt;a
+  href=&#34;https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard_Mac.pdf&#34;
+    target=&#34;_blank&#34;
+  &gt;https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard_Mac.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;第三方快捷键资料 
+    &lt;div id=&#34;第三方快捷键资料&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%ac%ac%e4%b8%89%e6%96%b9%e5%bf%ab%e6%8d%b7%e9%94%ae%e8%b5%84%e6%96%99&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;来自 eta02913：&lt;a
+  href=&#34;http://xinyuwu.iteye.com/blog/1005454&#34;
+    target=&#34;_blank&#34;
+  &gt;http://xinyuwu.iteye.com/blog/1005454&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;Mac 快捷键 
+    &lt;div id=&#34;mac-快捷键&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#mac-%e5%bf%ab%e6%8d%b7%e9%94%ae&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;根据官方pdf翻译：&lt;a
+  href=&#34;https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard_Mac.pdf&#34;
+    target=&#34;_blank&#34;
+  &gt;https://www.jetbrains.com/idea/docs/IntelliJIDEA_ReferenceCard_Mac.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;在 IntelliJ IDEA 中有两个 Mac 版本的快捷键，一个叫做：Mac OS X，一个叫做：Mac OS X 10.5+&lt;/li&gt;
+&lt;li&gt;目前都是用：Mac OS X 10.5+&lt;/li&gt;
+&lt;li&gt;有两套的原因：&lt;a
+  href=&#34;https://intellij-support.jetbrains.com/hc/en-us/community/posts/206159109-Updated-Mac-OS-X-keymap-Feedback-needed&#34;
+    target=&#34;_blank&#34;
+  &gt;https://intellij-support.jetbrains.com/hc/en-us/community/posts/206159109-Updated-Mac-OS-X-keymap-Feedback-needed&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;建议将 Mac 系统中与 IntelliJ IDEA 冲突的快捷键取消或更改，不建议改 IntelliJ IDEA 的默认快捷键。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>从 Windows 过度到 Mac 必备快捷键对照表</title>
+      <link>http://localhost:1313/other/post-337/</link>
+      <pubDate>Sat, 21 Mar 2020 10:58:27 +0000</pubDate>
+      
+      <guid>http://localhost:1313/other/post-337/</guid>
+      <description>&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;换MAC了,好多不习惯,特意整理了一下与Windows快捷键的区别!&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-来自小马哥的故事&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Mac 键盘符号 
+    &lt;div id=&#34;mac-键盘符号&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#mac-%e9%94%ae%e7%9b%98%e7%ac%a6%e5%8f%b7&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;图标&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⌘&lt;/td&gt;
+          &lt;td&gt;Command&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⇧&lt;/td&gt;
+          &lt;td&gt;Shift&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⇪&lt;/td&gt;
+          &lt;td&gt;Caps Lock&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⌥&lt;/td&gt;
+          &lt;td&gt;Option = Alt&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⌃&lt;/td&gt;
+          &lt;td&gt;Control&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;↩&lt;/td&gt;
+          &lt;td&gt;Enter&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⌫&lt;/td&gt;
+          &lt;td&gt;Delete&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⌦&lt;/td&gt;
+          &lt;td&gt;Fn + Delete&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;↑&lt;/td&gt;
+          &lt;td&gt;上箭头&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;↓&lt;/td&gt;
+          &lt;td&gt;下箭头&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;←&lt;/td&gt;
+          &lt;td&gt;左箭头&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;→&lt;/td&gt;
+          &lt;td&gt;右箭头&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⇞&lt;/td&gt;
+          &lt;td&gt;Fn + ↑ = Page Up&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⇟&lt;/td&gt;
+          &lt;td&gt;Fn + ↓ = Page Down&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Home&lt;/td&gt;
+          &lt;td&gt;Fn + ←&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;End&lt;/td&gt;
+          &lt;td&gt;Fn + →&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⇥&lt;/td&gt;
+          &lt;td&gt;Tab = 右制表符&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⇤&lt;/td&gt;
+          &lt;td&gt;Shift + Tab = 左制表符&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⎋&lt;/td&gt;
+          &lt;td&gt;Esc = Escape&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;⏏&lt;/td&gt;
+          &lt;td&gt;电源开关键&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Alt 
+    &lt;div id=&#34;alt&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#alt&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Win 快捷键&lt;/th&gt;
+          &lt;th&gt;Mac 快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + `&lt;/td&gt;
+          &lt;td&gt;Control + V&lt;/td&gt;
+          &lt;td&gt;显示版本控制常用操作菜单弹出层&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + F1&lt;/td&gt;
+          &lt;td&gt;Option + F1&lt;/td&gt;
+          &lt;td&gt;显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + F7&lt;/td&gt;
+          &lt;td&gt;Option + F7&lt;/td&gt;
+          &lt;td&gt;查询所选对象/变量被引用&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Enter&lt;/td&gt;
+          &lt;td&gt;Option + Enter&lt;/td&gt;
+          &lt;td&gt;IntelliJ IDEA 根据光标所在问题，提供快速修复选择，光标放在的位置不同提示的结果也不同&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Insert&lt;/td&gt;
+          &lt;td&gt;Command + N&lt;/td&gt;
+          &lt;td&gt;代码自动生成，如生成对象的 set / get 方法，构造函数，toString() 等&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + 左方向键&lt;/td&gt;
+          &lt;td&gt;Control + 左方向键&lt;/td&gt;
+          &lt;td&gt;切换当前已打开的窗口中的子视图，比如Debug窗口中有Output、Debugger等子视图，用此快捷键就可以在子视图中切换&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + 右方向键&lt;/td&gt;
+          &lt;td&gt;Control + 右方向键&lt;/td&gt;
+          &lt;td&gt;切换当前已打开的窗口中的子视图，比如Debug窗口中有Output、Debugger等子视图，用此快捷键就可以在子视图中切换&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + 前方向键&lt;/td&gt;
+          &lt;td&gt;Control + 前方向键&lt;/td&gt;
+          &lt;td&gt;当前光标跳转到当前文件的前一个方法名位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + 后方向键&lt;/td&gt;
+          &lt;td&gt;Control + 后方向键&lt;/td&gt;
+          &lt;td&gt;当前光标跳转到当前文件的后一个方法名位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + 1,2,3&amp;hellip;9&lt;/td&gt;
+          &lt;td&gt;Command + 1,2,3&amp;hellip;9&lt;/td&gt;
+          &lt;td&gt;显示对应数值的选项卡，其中 1 是 Project 用得最多&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ctrl 
+    &lt;div id=&#34;ctrl&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#ctrl&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Win 快捷键&lt;/th&gt;
+          &lt;th&gt;Mac 快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F&lt;/td&gt;
+          &lt;td&gt;Command + F&lt;/td&gt;
+          &lt;td&gt;在当前文件进行文本查找&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + R&lt;/td&gt;
+          &lt;td&gt;Command + R&lt;/td&gt;
+          &lt;td&gt;在当前文件进行文本替换&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Z&lt;/td&gt;
+          &lt;td&gt;Command + Z&lt;/td&gt;
+          &lt;td&gt;撤销&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + G&lt;/td&gt;
+          &lt;td&gt;Command + L&lt;/td&gt;
+          &lt;td&gt;跳转到指定行数位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Y&lt;/td&gt;
+          &lt;td&gt;Command + Delete&lt;/td&gt;
+          &lt;td&gt;删除光标所在行 或 删除选中的行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + D&lt;/td&gt;
+          &lt;td&gt;Command + D&lt;/td&gt;
+          &lt;td&gt;复制光标所在行 或 复制选择内容，并把复制内容插入光标位置下面&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + W&lt;/td&gt;
+          &lt;td&gt;Option + 方向键上&lt;/td&gt;
+          &lt;td&gt;递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + E&lt;/td&gt;
+          &lt;td&gt;Command + E&lt;/td&gt;
+          &lt;td&gt;显示最近打开的文件记录列表&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + N&lt;/td&gt;
+          &lt;td&gt;Command + O&lt;/td&gt;
+          &lt;td&gt;根据输入的 &lt;strong&gt;类名&lt;/strong&gt; 查找类文件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + J&lt;/td&gt;
+          &lt;td&gt;Command + J&lt;/td&gt;
+          &lt;td&gt;插入自定义动态代码模板&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + P&lt;/td&gt;
+          &lt;td&gt;Command + P&lt;/td&gt;
+          &lt;td&gt;方法参数提示显示&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Q&lt;/td&gt;
+          &lt;td&gt;Control + J&lt;/td&gt;
+          &lt;td&gt;当前位置变量、方法的 Documentation 内容显示&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + U&lt;/td&gt;
+          &lt;td&gt;Command + U&lt;/td&gt;
+          &lt;td&gt;前往当前光标所在的方法的父类的方法 / 接口定义&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + B&lt;/td&gt;
+          &lt;td&gt;Command + B&lt;/td&gt;
+          &lt;td&gt;进入光标所在的方法/变量的接口或是定义处，等效于 &lt;code&gt;Ctrl + 左键单击&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + /&lt;/td&gt;
+          &lt;td&gt;Command + /&lt;/td&gt;
+          &lt;td&gt;注释光标所在行代码，会根据当前不同文件类型使用不同的注释符号&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F1&lt;/td&gt;
+          &lt;td&gt;Command + F1&lt;/td&gt;
+          &lt;td&gt;在光标所在的错误代码处显示错误信息&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F11&lt;/td&gt;
+          &lt;td&gt;Option + F3&lt;/td&gt;
+          &lt;td&gt;选中文件 / 文件夹，使用助记符设定 / 取消书签&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + F12&lt;/td&gt;
+          &lt;td&gt;Command + F12&lt;/td&gt;
+          &lt;td&gt;弹出当前文件结构层，可以在弹出的层上直接输入，进行筛选&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Space&lt;/td&gt;
+          &lt;td&gt;Control + Space&lt;/td&gt;
+          &lt;td&gt;基础代码补全，默认在 Windows 系统上被输入法占用，需要进行修改，建议修改为 &lt;code&gt;Ctrl + 逗号&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Delete&lt;/td&gt;
+          &lt;td&gt;Option + Fn+ Delete&lt;/td&gt;
+          &lt;td&gt;删除光标后面的单词或是中文句&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + BackSpace&lt;/td&gt;
+          &lt;td&gt;Option + Delete&lt;/td&gt;
+          &lt;td&gt;删除光标前面的单词或是中文句&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 1,2,3&amp;hellip;9&lt;/td&gt;
+          &lt;td&gt;Control + 1,2,3&amp;hellip;9&lt;/td&gt;
+          &lt;td&gt;定位到对应数值的书签位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 加号&lt;/td&gt;
+          &lt;td&gt;Command + 加号&lt;/td&gt;
+          &lt;td&gt;展开代码&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 减号&lt;/td&gt;
+          &lt;td&gt;Command + 减号&lt;/td&gt;
+          &lt;td&gt;折叠代码&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 左键单击&lt;/td&gt;
+          &lt;td&gt;Control + 左键单击&lt;/td&gt;
+          &lt;td&gt;在打开的文件标题上，弹出该文件路径&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 左方向键&lt;/td&gt;
+          &lt;td&gt;Option + 左方向键&lt;/td&gt;
+          &lt;td&gt;光标跳转到当前单词 / 中文句的左侧开头位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 右方向键&lt;/td&gt;
+          &lt;td&gt;Option + 右方向键&lt;/td&gt;
+          &lt;td&gt;光标跳转到当前单词 / 中文句的右侧开头位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 前方向键&lt;/td&gt;
+          &lt;td&gt;预设中没有该快捷键&lt;/td&gt;
+          &lt;td&gt;等效于鼠标滚轮向前效果&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + 后方向键&lt;/td&gt;
+          &lt;td&gt;预设中没有该快捷键&lt;/td&gt;
+          &lt;td&gt;等效于鼠标滚轮向后效果&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Shift 
+    &lt;div id=&#34;shift&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#shift&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Win 快捷键&lt;/th&gt;
+          &lt;th&gt;Mac 快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + F11&lt;/td&gt;
+          &lt;td&gt;Command + F3&lt;/td&gt;
+          &lt;td&gt;弹出书签显示层&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + Tab&lt;/td&gt;
+          &lt;td&gt;Shift + Tab&lt;/td&gt;
+          &lt;td&gt;取消缩进&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + Enter&lt;/td&gt;
+          &lt;td&gt;Shift + Enter&lt;/td&gt;
+          &lt;td&gt;开始新一行。光标所在行下空出一行，光标定位到新行位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Shift + 左键单击&lt;/td&gt;
+          &lt;td&gt;Shift + 左键单击&lt;/td&gt;
+          &lt;td&gt;在打开的文件名上按此快捷键，可以关闭当前打开文件&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Alt + Shift 
+    &lt;div id=&#34;alt--shift&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#alt--shift&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Win 快捷键&lt;/th&gt;
+          &lt;th&gt;Mac 快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + N&lt;/td&gt;
+          &lt;td&gt;Option + Shift + N&lt;/td&gt;
+          &lt;td&gt;选择 / 添加 task&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + 左键双击&lt;/td&gt;
+          &lt;td&gt;Option + Shift + 左键双击&lt;/td&gt;
+          &lt;td&gt;选择被双击的单词 / 中文句，按住不放，可以同时选择其他单词 / 中文句&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + 前方向键&lt;/td&gt;
+          &lt;td&gt;Option + Shift + 前方向键&lt;/td&gt;
+          &lt;td&gt;移动光标所在行向上移动&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Alt + Shift + 后方向键&lt;/td&gt;
+          &lt;td&gt;Option + Shift + 后方向键&lt;/td&gt;
+          &lt;td&gt;移动光标所在行向下移动&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ctrl + Alt 
+    &lt;div id=&#34;ctrl--alt&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#ctrl--alt&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Win 快捷键&lt;/th&gt;
+          &lt;th&gt;Mac 快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + L&lt;/td&gt;
+          &lt;td&gt;Command + Option + L&lt;/td&gt;
+          &lt;td&gt;格式化代码，可以对当前文件和整个包目录使用&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + O&lt;/td&gt;
+          &lt;td&gt;Control + Option + O&lt;/td&gt;
+          &lt;td&gt;优化导入的类，可以对当前文件和整个包目录使用&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + T&lt;/td&gt;
+          &lt;td&gt;Command + Option + T&lt;/td&gt;
+          &lt;td&gt;对选中的代码弹出环绕选项弹出层&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + S&lt;/td&gt;
+          &lt;td&gt;Command + 逗号&lt;/td&gt;
+          &lt;td&gt;打开 IntelliJ IDEA 系统设置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + Enter&lt;/td&gt;
+          &lt;td&gt;Command + Option + Enter&lt;/td&gt;
+          &lt;td&gt;光标所在行上空出一行，光标定位到新行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + 左方向键&lt;/td&gt;
+          &lt;td&gt;Command + Option + 左方向键&lt;/td&gt;
+          &lt;td&gt;退回到上一个操作的地方&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Alt + 右方向键&lt;/td&gt;
+          &lt;td&gt;Command + Option + 右方向键&lt;/td&gt;
+          &lt;td&gt;前进到上一个操作的地方&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ctrl + Shift 
+    &lt;div id=&#34;ctrl--shift&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#ctrl--shift&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Win 快捷键&lt;/th&gt;
+          &lt;th&gt;Mac 快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + F&lt;/td&gt;
+          &lt;td&gt;Command + Shift + F&lt;/td&gt;
+          &lt;td&gt;根据输入内容查找整个项目 或 指定目录内文件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + R&lt;/td&gt;
+          &lt;td&gt;Command + Shift + R&lt;/td&gt;
+          &lt;td&gt;根据输入内容替换对应内容，范围为整个项目 或 指定目录内文件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + J&lt;/td&gt;
+          &lt;td&gt;Control + Shift + J&lt;/td&gt;
+          &lt;td&gt;自动将下一行合并到当前行末尾&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Z&lt;/td&gt;
+          &lt;td&gt;Command + Shift + Z&lt;/td&gt;
+          &lt;td&gt;取消撤销&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + W&lt;/td&gt;
+          &lt;td&gt;Option + 方向键下&lt;/td&gt;
+          &lt;td&gt;递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + N&lt;/td&gt;
+          &lt;td&gt;Command + Shift + O&lt;/td&gt;
+          &lt;td&gt;通过文件名定位 / 打开文件 / 目录，打开目录需要在输入的内容后面多加一个正斜杠&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + U&lt;/td&gt;
+          &lt;td&gt;Command + Shift + U&lt;/td&gt;
+          &lt;td&gt;对选中的代码进行大 / 小写轮流转换&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + T&lt;/td&gt;
+          &lt;td&gt;Command + Shift + T&lt;/td&gt;
+          &lt;td&gt;对当前类生成单元测试类，如果已经存在的单元测试类则可以进行选择&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + C&lt;/td&gt;
+          &lt;td&gt;Command + Shift + C&lt;/td&gt;
+          &lt;td&gt;复制当前文件磁盘路径到剪贴板&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + B&lt;/td&gt;
+          &lt;td&gt;Control + Shift + B&lt;/td&gt;
+          &lt;td&gt;跳转到类型声明处&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + /&lt;/td&gt;
+          &lt;td&gt;Command + Option + /&lt;/td&gt;
+          &lt;td&gt;代码块注释&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + [&lt;/td&gt;
+          &lt;td&gt;Command + Shift + [&lt;/td&gt;
+          &lt;td&gt;选中从光标所在位置到它的顶部中括号位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + ]&lt;/td&gt;
+          &lt;td&gt;Command + Shift + ]&lt;/td&gt;
+          &lt;td&gt;选中从光标所在位置到它的底部中括号位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 加号&lt;/td&gt;
+          &lt;td&gt;Command + Shift + 加号&lt;/td&gt;
+          &lt;td&gt;展开所有代码&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 减号&lt;/td&gt;
+          &lt;td&gt;Command + Shift + 减号&lt;/td&gt;
+          &lt;td&gt;折叠所有代码&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + F7&lt;/td&gt;
+          &lt;td&gt;Command + Shift + F7&lt;/td&gt;
+          &lt;td&gt;高亮显示所有该选中文本，按Esc高亮消失&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + F12&lt;/td&gt;
+          &lt;td&gt;Command + Shift + F12&lt;/td&gt;
+          &lt;td&gt;编辑器最大化&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Enter&lt;/td&gt;
+          &lt;td&gt;Command + Shift + Enter&lt;/td&gt;
+          &lt;td&gt;自动结束代码，行末自动添加分号&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Backspace&lt;/td&gt;
+          &lt;td&gt;Ctrl + Shift + Backspace&lt;/td&gt;
+          &lt;td&gt;退回到上次修改的地方&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 1,2,3&amp;hellip;9&lt;/td&gt;
+          &lt;td&gt;Control + Shift + 1,2,3&amp;hellip;9&lt;/td&gt;
+          &lt;td&gt;快速添加指定数值的书签&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 左键单击&lt;/td&gt;
+          &lt;td&gt;Command + Shift + 左键单击&lt;/td&gt;
+          &lt;td&gt;把光标放在某个类变量上，按此快捷键可以直接定位到该类中&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 左方向键&lt;/td&gt;
+          &lt;td&gt;Option + Shift + 左方向键&lt;/td&gt;
+          &lt;td&gt;在代码文件上，光标跳转到当前单词 / 中文句的左侧开头位置，同时选中该单词 / 中文句&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 右方向键&lt;/td&gt;
+          &lt;td&gt;Option + Shift + 右方向键&lt;/td&gt;
+          &lt;td&gt;在代码文件上，光标跳转到当前单词 / 中文句的右侧开头位置，同时选中该单词 / 中文句&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 前方向键&lt;/td&gt;
+          &lt;td&gt;Command + Shift + 前方向键&lt;/td&gt;
+          &lt;td&gt;光标放在方法名上，将方法移动到上一个方法前面，调整方法排序&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + 后方向键&lt;/td&gt;
+          &lt;td&gt;Command + Shift + 后方向键&lt;/td&gt;
+          &lt;td&gt;光标放在方法名上，将方法移动到下一个方法前面，调整方法排序&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ctrl + Shift + Alt 
+    &lt;div id=&#34;ctrl--shift--alt&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#ctrl--shift--alt&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Win 快捷键&lt;/th&gt;
+          &lt;th&gt;Mac 快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Alt + V&lt;/td&gt;
+          &lt;td&gt;Command + Shift + Option + V&lt;/td&gt;
+          &lt;td&gt;无格式黏贴&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ctrl + Shift + Alt + S&lt;/td&gt;
+          &lt;td&gt;Command + ;&lt;/td&gt;
+          &lt;td&gt;打开当前项目设置&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Other 
+    &lt;div id=&#34;other&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#other&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Win 快捷键&lt;/th&gt;
+          &lt;th&gt;Mac 快捷键&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F2&lt;/td&gt;
+          &lt;td&gt;F2&lt;/td&gt;
+          &lt;td&gt;跳转到下一个高亮错误 或 警告位置&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F4&lt;/td&gt;
+          &lt;td&gt;F4&lt;/td&gt;
+          &lt;td&gt;编辑源&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F11&lt;/td&gt;
+          &lt;td&gt;F3&lt;/td&gt;
+          &lt;td&gt;添加书签&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;F12&lt;/td&gt;
+          &lt;td&gt;F12&lt;/td&gt;
+          &lt;td&gt;回到前一个工具窗口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Tab&lt;/td&gt;
+          &lt;td&gt;Tab&lt;/td&gt;
+          &lt;td&gt;缩进&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ESC&lt;/td&gt;
+          &lt;td&gt;ESC&lt;/td&gt;
+          &lt;td&gt;从工具窗口进入代码文件窗口&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Eclipse 卡慢的完美解决方案</title>
+      <link>http://localhost:1313/other/post-382/</link>
+      <pubDate>Mon, 13 Nov 2017 02:56:25 +0000</pubDate>
+      
+      <guid>http://localhost:1313/other/post-382/</guid>
+      <description>&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;eclipse 有时候保存一下就不懂了,卡主了,Clena 一下特别慢&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-来自小马哥的故事&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;一、产生这个问题的原因多种&lt;/p&gt;
+&lt;p&gt;1、自动升级 2、未正确关闭 3、maven下载lib挂起 等..&lt;/p&gt;
+&lt;p&gt;二、解决总结&lt;/p&gt;
+&lt;p&gt;（1）、解决方法&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    方法1.修改eclipse启动文件 eclipse.ini 中添加启动参数参数: -vmargs -Xmx512m
+    方法2.关闭自动构建工作区: project -&amp;gt; build Auto…..　
+    方法3.在eclipse.ini式中添加了一个命令 -clean 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;（2）、加大Eclipse运行可用最大内存数&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;      具体操作: 修改位于eclipse目录下的eclipse.ini, 将-Xmx512m调高, 如改成-Xmx768m
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;（3）、减少Eclipse启动后自动启动的插件&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;      具体操作: 在Preferences -&amp;gt; General -&amp;gt; StartUp and Shutdown: 
+
+      Eclipse加载慢，有时候是因为插件装多了，可以转到window → Preperences → 搜索Startup and Shutdown → 取消激活所有的插件（Plug-ins activated on startup 程序启动时激活插件）将除Plug-ins activated on startup以外的项目有节选的去掉（比如Mylyn等没用到,就去掉了）
+
+      效果: 启动Eclipse后,会有Initialing Java Tools的滚动条,会发现快了很多.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;（4）、减少编译需要验证的项目,提升编译速度&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;      具体操作: 在Preferences -&amp;gt; Validataion 将无关的Validator去掉, 比如: 我就将和我无关的JPA, JSP, WS 都去掉了.
+       效果: 编译项目时,Eclipse跑的Validator项目少了, 确实快了.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;（5）、关掉自动编译&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>eclipse安装lombok插件</title>
+      <link>http://localhost:1313/other/post-394/</link>
+      <pubDate>Wed, 25 Oct 2017 03:19:55 +0000</pubDate>
+      
+      <guid>http://localhost:1313/other/post-394/</guid>
+      <description>&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;eclipse安装lombok插件&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-来自小马哥的故事&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;1、下载Lombok.jar &lt;a
+  href=&#34;http://projectlombok.googlecode.com/files/lombok.jar&#34;
+    target=&#34;_blank&#34;
+  &gt;http://projectlombok.googlecode.com/files/lombok.jar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2、运行Lombok.jar: java -jar D:\001_software\work\Java\libs\lombok.jar 数秒后将弹出一框，以确认eclipse的安装路径&lt;/p&gt;
+&lt;p&gt;3、确认完eclipse的安装路径后，点击install/update按钮，即可安装完成&lt;/p&gt;
+&lt;p&gt;4、安装完成之后，请确认eclipse安装路径下是否多了一个lombok.jar包，并且其 配置文件eclipse.ini中是否 添加了如下内容: -javaagent:lombok.jar -Xbootclasspath/a:lombok.jar 如果上面的答案均为true，那么恭喜你已经安装成功，否则将缺少的部分添加到相应的位置即可&lt;/p&gt;
+&lt;p&gt;5、重启eclipse或myeclipse&lt;/p&gt;
+&lt;p&gt;6、创建一个java工程，建立如下类：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; lombok.Data;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; lombok.Getter;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; lombok.Setter;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Data&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;DataObject&lt;/span&gt; {  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String id;     
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#a6e22e&#34;&gt;@Setter@Getter&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String name;     
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String userId;     
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String password;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 class=&#34;relative group&#34;&gt;lombok 注解： 
+    &lt;div id=&#34;lombok-注解&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#lombok-%e6%b3%a8%e8%a7%a3&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;lombok 提供的注解不多，可以参考官方视频的讲解和官方文档。 Lombok 注解在线帮助文档：http://projectlombok.org/features/index. 下面介绍几个我常用的 lombok 注解：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    @Data   ：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法
+    @Setter：注解在属性上；为属性提供 setting 方法
+    @Getter：注解在属性上；为属性提供 getting 方法
+    @Log4j ：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象
+    @NoArgsConstructor：注解在类上；为类提供一个无参的构造方法
+    @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;有问题请看:lombok 的官方网址：http://projectlombok.org/&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Eclipse无法启动报An internal error occurred during:</title>
+      <link>http://localhost:1313/other/post-396/</link>
+      <pubDate>Wed, 25 Oct 2017 02:02:29 +0000</pubDate>
+      
+      <guid>http://localhost:1313/other/post-396/</guid>
+      <description>&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这种错误，大概是因为，在使用eclipse中使用maven下载jar，由于太慢自己没有耐心，就手动停止，结果eclipse卡死没有响应，最后启动任务管理器结束eclipse进程。之后再次启动就出现这种结果。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-来自小马哥的故事&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;在workspace中找到.metadata文件夹&lt;/li&gt;
+&lt;li&gt;再找到.plugins文件夹&lt;/li&gt;
+&lt;li&gt;再找到org.eclipse.e4.workbench文件夹&lt;/li&gt;
+&lt;li&gt;再把里面的workbench.xmi文件，删除就可以啦！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;经过我实践是可以的，不过一些配置可能要重新配置，比如字体的大小。&lt;/p&gt;
+&lt;p&gt;注意：网上也有说直接把.metadata文件夹删除，这种方式只适合菜鸟，一般真正程序员eclipse里面已经加载了很多项目，把.metadata文件夹删除会导致要重新导入项目的情况，所以不推荐使用。（况且我删除后，并没有解决问题）&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

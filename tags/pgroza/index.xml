@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pgroza on CUITPF</title>
+    <link>http://localhost:1313/tags/pgroza/</link>
+    <description>Recent content in Pgroza on CUITPF</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Tue, 06 Oct 2020 14:25:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/pgroza/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>物联网平台——Pgroza（一）</title>
+      <link>http://localhost:1313/posts/post-13/</link>
+      <pubDate>Tue, 06 Oct 2020 14:25:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-13/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;Pgroza 简介 
+    &lt;div id=&#34;pgroza-简介&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#pgroza-%e7%ae%80%e4%bb%8b&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Pgroza 是参考groza制作的物联网平台，面向个人，开源。
+此项目仅仅用于学习，不建议用在商业用途。
+之所以会有这个想法，主要是因为之前从事过物联网行业，虽然是做上层业务的，但是还是对这个生态比较感兴趣，然后在网上找了不少的资料过后，终于还是决定自己搭建一个。经过调研后发现几个问题：1.凑齐一个生态成本比较高；2.基于现成的云平台进行开发过后，总是要受各种条件限制；3.依赖现有平台和框架，最后开发的基本上都是各种业务层的东西了，对生态链还是不够深入理解。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;关于Pgroza的发展 
+    &lt;div id=&#34;关于pgroza的发展&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%85%b3%e4%ba%8epgroza%e7%9a%84%e5%8f%91%e5%b1%95&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;其实我还没想好要怎么去研发Pgroza，现在的想法是现做一个面向单个家庭的。
+所以应该是一个&lt;strong&gt;单机版&lt;/strong&gt;的，为了以后&lt;strong&gt;拓展方便&lt;/strong&gt;，开发时需要&lt;strong&gt;注意解耦&lt;/strong&gt;的问题。
+如果研发顺利，应该是可以做成分布式的；未来的人对数据隐私会比现在重视的很多，所以多家庭接入的问题暂时不会考虑了。最后就是如果要面向大众，最好是能一键化部署，就好像安装应用程序一样。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;对Pgroza的初期功能分析 
+    &lt;div id=&#34;对pgroza的初期功能分析&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%af%b9pgroza%e7%9a%84%e5%88%9d%e6%9c%9f%e5%8a%9f%e8%83%bd%e5%88%86%e6%9e%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;涉及对象 
+    &lt;div id=&#34;涉及对象&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%b6%89%e5%8f%8a%e5%af%b9%e8%b1%a1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;一般情况，物联网平台涉及对象不外乎两个：&lt;strong&gt;用户和设备&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;对于&lt;strong&gt;设备&lt;/strong&gt;： 设备需要接入，接入时需要提供协议，现在的物联网平台一般都是规定一定的接入协议的，设备一般都是需要去遵从这些既定协议的。当然，如果设备商比较牛掰，物联网平台也可以增加协议去适配厂商的。设备按照协议接入平台后，在某些事件（常见的就是温度变化、湿度变化以及光变化等等）触发后，向平台上报数据，平台根据协议解析后，存储下来，展示的接口就可以查询数据用于展示了。高级的功能可以根据不同设备的事件产生联动效果（比如：检测到光变暗了，就开灯）。同种设备安装在不同的地方可能有不同的应用，所以每个设备需要有自己的信息，最好是在接入的时候就关联上。&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>水印 on CUITPF</title>
+    <link>http://localhost:1313/tags/%E6%B0%B4%E5%8D%B0/</link>
+    <description>Recent content in 水印 on CUITPF</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Thu, 12 Jun 2025 13:07:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%B0%B4%E5%8D%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>去除PDF水印</title>
+      <link>http://localhost:1313/posts/post-406/</link>
+      <pubDate>Thu, 12 Jun 2025 13:07:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-406/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;使用PDFWatermarkRemover去除PDF水印的教程 
+    &lt;div id=&#34;使用pdfwatermarkremover去除pdf水印的教程&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%bd%bf%e7%94%a8pdfwatermarkremover%e5%8e%bb%e9%99%a4pdf%e6%b0%b4%e5%8d%b0%e7%9a%84%e6%95%99%e7%a8%8b&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;引言 
+    &lt;div id=&#34;引言&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%bc%95%e8%a8%80&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;在处理PDF文档的过程中，我们经常遇到需要移除水印的情况。无论是为了提升文档的可读性，还是为了满足特定的业务需求，去除水印都是一个常见的任务。然而，现有的解决方案往往存在收费昂贵或上手难度高的问题。例如，某些软件要求用户具备一定的技术背景，并且需要指定水印的操作码才能进行有效的删除15。鉴于此，我开发了一个名为&lt;a
+  href=&#34;https://github.com/cuitpanfei/PDFWatermarkRemover&#34;
+    target=&#34;_blank&#34;
+  &gt;PDFWatermarkRemover&lt;/a&gt;的&lt;code&gt;Java&lt;/code&gt;项目，旨在提供一个免费、易于使用的工具来解决这些问题。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;项目概述 
+    &lt;div id=&#34;项目概述&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e9%a1%b9%e7%9b%ae%e6%a6%82%e8%bf%b0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;开发理由 
+    &lt;div id=&#34;开发理由&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%bc%80%e5%8f%91%e7%90%86%e7%94%b1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;免费与成本效益 
+    &lt;div id=&#34;免费与成本效益&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%85%8d%e8%b4%b9%e4%b8%8e%e6%88%90%e6%9c%ac%e6%95%88%e7%9b%8a&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;市场上许多专业的PDF编辑软件虽然功能强大，但大多需要付费购买才能解锁全部功能，特别是对于去水印这样的高级功能。这对于个人用户或者预算有限的小型企业来说可能是一个不小的负担。相比之下，PDFWatermarkRemover完全免费，为用户提供了一个经济实惠的选择。&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

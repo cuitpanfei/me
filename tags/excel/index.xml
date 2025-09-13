@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Excel on CUITPF</title>
+    <link>http://localhost:1313/tags/excel/</link>
+    <description>Recent content in Excel on CUITPF</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Sun, 27 Oct 2019 07:52:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/excel/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Excel导入简易版（一）</title>
+      <link>http://localhost:1313/posts/post-4/</link>
+      <pubDate>Sun, 27 Oct 2019 07:52:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-4/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;写在前面 
+    &lt;div id=&#34;写在前面&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%86%99%e5%9c%a8%e5%89%8d%e9%9d%a2&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;需要说明的是，这篇文章的主旨不是要实现一个完美的Excel导入功能，而是希望做到抛砖引玉以及帮助部分同学展开自我思考的思路。&lt;/p&gt;
+&lt;p&gt;好了，话不多说，我们直接进入正题。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;背景定义 
+    &lt;div id=&#34;背景定义&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e8%83%8c%e6%99%af%e5%ae%9a%e4%b9%89&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;我们在完成功能前一般需要梳理一下需求，由于本篇文章旨在引导，所以需求一般会比较简单。&lt;/p&gt;
+&lt;p&gt;我们定义如下背景：&lt;/p&gt;
+&lt;p&gt;某公司由于业务需要，现想要自主研发管理系统，这就需要将公司部分数据从原有系统导出（现有系统已支持），然后导入到新系统中。由于公司体量庞大，业务和数据较多，所以公司领导层希望研发部逐步完成数据转移。研发部的第一个功能就是人员信息数据转移，已知原有人员信息模本中盖内容包括：所在部门，姓名，性别，出生日期，年龄，户籍所在地，居住地，就职时间，婚姻状况，教育程度，联系电话，紧急联系人，紧急联系人电话。&lt;/p&gt;
+&lt;p&gt;由于研发部主要都是Java开发人员，所以研发部决定先用java开发一版demo，于是采集了部分样本数据：&lt;a
+  href=&#34;http://www.pfinfo.com.cn/blog/upload/2019/10/rkkrkkoutagtaoitcrp691du6m.xlsx&#34;
+    target=&#34;_blank&#34;
+  &gt;人员信息&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;alt&#34; src=&#34;http://www.pfinfo.com.cn/blog/upload/2019/10/5gfom78f18jc3rfjoahr0jndsp.png&#34;&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;由于业务庞大，为分工明确，研发部将数据导入分为多个模块（eg: 文件上传，数据转换，数据填充，相关业务初始化，数据入库）。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;分析需求 
+    &lt;div id=&#34;分析需求&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%88%86%e6%9e%90%e9%9c%80%e6%b1%82&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;其他模块暂且不分析，我们简要分析一下上述背景中关于&lt;strong&gt;数据转换&lt;/strong&gt;需求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Excel文件上传后，需要读入文件内容，然后逐行转换数据为指定对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;貌似这个功能很简单，我们就直接开始吧。&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;创建Demo Project 
+    &lt;div id=&#34;创建demo-project&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%88%9b%e5%bb%bademo-project&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;我们尽量精简一点，我们使用Eclipse（或者idea）创建一个Maven项目&lt;br&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;alt&#34; src=&#34;http://www.pfinfo.com.cn/blog/upload/2019/10/r69nn1sbh8h34p56vkb1fvdjl3.png&#34;&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

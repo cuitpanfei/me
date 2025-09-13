@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NAS on CUITPF</title>
+    <link>http://localhost:1313/categories/nas/</link>
+    <description>Recent content in NAS on CUITPF</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Tue, 10 Aug 2021 15:36:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/nas/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>使用群晖把阿里云盘挂载为本地系统的磁盘</title>
+      <link>http://localhost:1313/posts/post-284/</link>
+      <pubDate>Tue, 10 Aug 2021 15:36:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-284/</guid>
+      <description>&lt;p&gt;&lt;a
+  href=&#34;http://localhost:1313/tag/%E5%A5%BD%E7%8E%A9&#34;&gt;好玩&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;群晖使用ali-webdav 
+    &lt;div id=&#34;群晖使用ali-webdav&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%be%a4%e6%99%96%e4%bd%bf%e7%94%a8ali-webdav&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;首先你的群晖支持docker&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;ali-webdav下载 
+    &lt;div id=&#34;ali-webdav下载&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#ali-webdav%e4%b8%8b%e8%bd%bd&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;在docker的注册表搜索 &lt;code&gt;ali-webdav&lt;/code&gt; 如图所示然后点击下载&lt;br&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;image-20210810170701212&#34; src=&#34;https://img.maruifu.com/images/2021/08/10/image-20210810170701212.png&#34;&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;ali-webdava安装 
+    &lt;div id=&#34;ali-webdava安装&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#ali-webdava%e5%ae%89%e8%a3%85&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;映像中选中ali-webdava 点击启动&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;image-20210810171329122&#34; src=&#34;https://img.maruifu.com/images/2021/08/10/image-20210810171329122.png&#34;&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;高级设置 
+    &lt;div id=&#34;高级设置&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e9%ab%98%e7%ba%a7%e8%ae%be%e7%bd%ae&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;启用自动重新启动 
+    &lt;div id=&#34;启用自动重新启动&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%90%af%e7%94%a8%e8%87%aa%e5%8a%a8%e9%87%8d%e6%96%b0%e5%90%af%e5%8a%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;image-20210810171451154&#34; src=&#34;https://img.maruifu.com/images/2021/08/10/image-20210810171451154.png&#34;&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>群晖Docker安装chevereto图床</title>
+      <link>http://localhost:1313/posts/post-329/</link>
+      <pubDate>Sun, 14 Jun 2020 07:41:03 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-329/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;Docker chevereto 准备的环境 
+    &lt;div id=&#34;docker-chevereto-准备的环境&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#docker-chevereto-%e5%87%86%e5%a4%87%e7%9a%84%e7%8e%af%e5%a2%83&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;mysql 数据库 （我目前是使用的是&lt;code&gt;MariaDB 10&lt;/code&gt;,安装数据库不多做叙述，可以看我之前的教程）&lt;/p&gt;
+&lt;p&gt;我用的是 Navicat ，新建数据库 填写 chevereto 如图：&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;https://img.maruifu.com/images/blog/2020/06/chevereto6.png&#34; src=&#34;https://img.maruifu.com/images/blog/2020/06/chevereto6.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;&lt;a
+  href=&#34;https://img.maruifu.com/images/blog/2020/06/chevereto6.png&#34;
+    target=&#34;_blank&#34;
+  &gt;https://img.maruifu.com/images/blog/2020/06/chevereto6.png&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Docker chevereto的下载 
+    &lt;div id=&#34;docker-chevereto的下载&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#docker-chevereto%e7%9a%84%e4%b8%8b%e8%bd%bd&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;在群晖docker里面的注册表里面搜索 Chevereto ，我用的nmtan/chevereto下载，如果有让你选择标签的话默认就好，等待容器镜像下载完成。如图: 
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;https://img.maruifu.com/images/blog/2020/06/chevereto1.png&#34; src=&#34;https://img.maruifu.com/images/blog/2020/06/chevereto1.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;&lt;a
+  href=&#34;https://img.maruifu.com/images/blog/2020/06/chevereto1.png&#34;
+    target=&#34;_blank&#34;
+  &gt;https://img.maruifu.com/images/blog/2020/06/chevereto1.png&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Docker chevereto的存储卷 
+    &lt;div id=&#34;docker-chevereto的存储卷&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#docker-chevereto%e7%9a%84%e5%ad%98%e5%82%a8%e5%8d%b7&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;在群晖的docker目录里面建立子目录Chevereto，后面安装容器会挂载此目录作为图床的文件存储目录,注意文件名的大小写 
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;https://img.maruifu.com/images/blog/2020/06/chevereto2.png&#34; src=&#34;https://img.maruifu.com/images/blog/2020/06/chevereto2.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;&lt;a
+  href=&#34;https://img.maruifu.com/images/blog/2020/06/chevereto2.png&#34;
+    target=&#34;_blank&#34;
+  &gt;https://img.maruifu.com/images/blog/2020/06/chevereto2.png&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>群晖NAS利用Docker容器搭建KMS激活服务器实现激活windows系统和office</title>
+      <link>http://localhost:1313/posts/post-330/</link>
+      <pubDate>Sat, 13 Jun 2020 15:01:25 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-330/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;前言 
+    &lt;div id=&#34;前言&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e5%89%8d%e8%a8%80&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;Windows系统中能够通过KMS进行激活的一般称为VL版,即VOLUME授权版。我们可以自行搭建KMS激活服务器，实现每180天一次的自动激活，使得系统一直保持激活状态。这次就跟大家分享一下如何利用群晖NAS的Docker容器套件搭建KMS服务器，并演示如何利用我们自己的KMS服务器激活Windows操作系统与Microsoft Office。&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;操作步骤 
+    &lt;div id=&#34;操作步骤&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e6%93%8d%e4%bd%9c%e6%ad%a5%e9%aa%a4&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;先到套件中心安装Docker套件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+  href=&#34;https://img.maruifu.com/images/blog/2020/06/2.png&#34;
+    target=&#34;_blank&#34;
+  &gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;img&#34; src=&#34;https://img.maruifu.com/images/blog/2020/06/2.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;img&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装好以后打开Docker在注册表这里搜索：KMS，选择第一个，点击【下载】&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+  href=&#34;https://img.maruifu.com/images/blog/2020/06/3.png&#34;
+    target=&#34;_blank&#34;
+  &gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;img&#34; src=&#34;https://img.maruifu.com/images/blog/2020/06/3.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;img&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;选择一个版本，我这里就选择:1112&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+  href=&#34;https://img.maruifu.com/images/blog/2020/06/4.png&#34;
+    target=&#34;_blank&#34;
+  &gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;img&#34; src=&#34;https://img.maruifu.com/images/blog/2020/06/4.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;img&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;稍等片刻下载完成，完成后再到【映像】选择到我们刚才下载的点击【启动】&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+  href=&#34;https://img.maruifu.com/images/blog/2020/06/5.png&#34;
+    target=&#34;_blank&#34;
+  &gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;img&#34; src=&#34;https://img.maruifu.com/images/blog/2020/06/5.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;img&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;开始创建容器，这里点击【高级设置】&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+  href=&#34;https://img.maruifu.com/images/blog/2020/06/6.png&#34;
+    target=&#34;_blank&#34;
+  &gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;img&#34; src=&#34;https://img.maruifu.com/images/blog/2020/06/6.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;img&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在【网络】这里勾选【使用与Docker Host相同的网络】&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+  href=&#34;https://img.maruifu.com/images/blog/2020/06/7.png&#34;
+    target=&#34;_blank&#34;
+  &gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;img&#34; src=&#34;https://img.maruifu.com/images/blog/2020/06/7.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;img&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;最后确认一下即可点击【应用】，应用后自动启动容器。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这样我们的KMS服务器就算搭建好了，KMS服务器默认端口号为：1688，IP的话就是我们NAS的IP。想要外网也可以用的话就可以使用内网穿透或者端口映射。下面以Windows10专业工作站版为例演示一下如何使用KMS激活系统。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这里首先我们先判断一下我们的Windows是什么版本，管理员身份运行命令提示符，输入：&lt;code&gt;wmic os get caption&lt;/code&gt; 看到我这里是Windows 10 专业工作站版&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a
+  href=&#34;https://img.maruifu.com/images/blog/2020/06/8.png&#34;
+    target=&#34;_blank&#34;
+  &gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;img&#34; src=&#34;https://img.maruifu.com/images/blog/2020/06/8.png&#34;&gt;
+
+  
+    &lt;figcaption&gt;img&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;打开：&lt;a
+  href=&#34;https://technet.microsoft.com/en-us/library/jj612867.aspx&#34;
+    target=&#34;_blank&#34;
+  &gt;https://technet.microsoft.com/en-us/library/jj612867.aspx&lt;/a&gt; 找到对应系统版本的KEY，例如Windows10 专业工作站版的KEY为：NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J&lt;/strong&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>NAS 篇二：外网访问NAS上面的应用</title>
+      <link>http://localhost:1313/posts/post-334/</link>
+      <pubDate>Sat, 04 Apr 2020 06:49:45 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-334/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;一 ，申请公网IP(动态IP) 
+    &lt;div id=&#34;一-申请公网ip动态ip&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%b8%80-%e7%94%b3%e8%af%b7%e5%85%ac%e7%bd%91ip%e5%8a%a8%e6%80%81ip&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在北方联通公网IP多一些,在南方电信公网IP多一些&lt;/p&gt;
+&lt;p&gt;北漂的我自己用的 正好是北京联通宽带,当初在咸鱼办理的七百多办理下来五百多.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;申请公网IP 
+    &lt;div id=&#34;申请公网ip&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%94%b3%e8%af%b7%e5%85%ac%e7%bd%91ip&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;一开始跟客服说客服说办理专网才有公网IP,申请失败!(客服可能理解错了,要的不是固定的公网IP,有钱当然随意了)&lt;/p&gt;
+&lt;p&gt;后又拨打客服沟通说要弄摄像头弄nas,帮转一下技术客服,然后给技术上说,然后四五分钟后重启就好了,&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;验证公网IP 
+    &lt;div id=&#34;验证公网ip&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e9%aa%8c%e8%af%81%e5%85%ac%e7%bd%91ip&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;登录光猫后台查看IP&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;&#34; src=&#34;https://img.maruifu.com/images/blog/2020/04/ublb4qjmnihrvpq08kqjdes2ao.jpg&#34;&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;输入地址 &lt;a
+  href=&#34;https://www.ipip.net&#34;
+    target=&#34;_blank&#34;
+  &gt;www.ipip.net&lt;/a&gt; 查看IP&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;&#34; src=&#34;https://img.maruifu.com/images/blog/2020/04/topdhnf020gjmqqavbovmsd6ov.jpg&#34;&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;发现两个IP一致说明公网IP 开通好了,记住那个VLAN ID 3961,我的是北京的是3961 ,地域不一样这个也不一样后面会用到&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;二 , 光猫桥接 
+    &lt;div id=&#34;二--光猫桥接&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%ba%8c--%e5%85%89%e7%8c%ab%e6%a1%a5%e6%8e%a5&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;光猫集成了很多功能，身兼数职，除了最基本的光电转换功能外，还集成了路由功能、DHCP服务、NAT、IPTV、WIFI功能等。而光猫的硬件只能满足家庭网络的基本需求，如果将光猫作为家庭网络的中心节点，由于光猫的性能问题，现在基本都是智能家具,笔记本,PC电脑,床头灯手机,天猫精灵,小爱同学,摄像机,智能插座,IPAD等等光设备就十几个,我打游戏时 经常460,作为一级宽带运营商不应该出现的问题,一开始购买联通宽带也是这个原因,不像是鹏博士,长城宽带那样二三级运营商&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>NAS 篇一：记录下自己的第一台NAS系</title>
+      <link>http://localhost:1313/posts/post-335/</link>
+      <pubDate>Sat, 04 Apr 2020 04:59:10 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-335/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;购买理由 
+    &lt;div id=&#34;购买理由&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e8%b4%ad%e4%b9%b0%e7%90%86%e7%94%b1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;处于以下考虑我有了人生中的第一台NAS&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;我之前购买了一台小米家庭云盘,之前是备份照片,离线下载,智能摄像机录像存储用的 ,后来感觉 也只能干这些,下载东西需要安装客户端,不能直接对外分享,不支持PC操作,尤其是MAC(公司给配了一台MAC),关键是有两个T的监控级内置硬盘,,和购买内存差不多少了,因为当时是众筹还很便宜, 在一个技术交流群里面有个人要购买,正好卖给他了.用了一年多便宜一百块钱.&lt;/li&gt;
+&lt;li&gt;我的阿里云服务器太慢了,换了mac笔记本后,之前我一直用的FoxMail邮箱里面的笔记,发现MAC客户端不支持,之前的笔记只能一点点复制出来,索性搭建了一个开源的笔记,发现有个为知笔记(多端支持同步支持makedown语法正式我想要的) 推荐挺好的,搭建好了,太卡了 页面打开半天,当然和我服务器有关系.&lt;/li&gt;
+&lt;li&gt;过去两年内各大硬盘的关停和限速.&lt;/li&gt;
+&lt;li&gt;可以作为家里的小型服务器使用。&lt;/li&gt;
+&lt;li&gt;自己心里种草了，自己也是个爱折腾的人，我的人生两大定律 &amp;ldquo;一切向钱看&amp;rdquo;,&amp;ldquo;活着就要折腾&amp;rdquo;,这是促成这个得主要原因&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;设备采购 
+    &lt;div id=&#34;设备采购&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e8%ae%be%e5%a4%87%e9%87%87%e8%b4%ad&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;网上搜了一下 主要是推荐了三个品牌 群晖,威联通,铁威马各有各的特点总结三句话&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;可玩性推荐群晖&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安全性推荐威联通&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;性价比推荐铁威马&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我开始选择了铁威马,购买后发现声音有点大,北京租房的我只能在一个屋里面,虽然我睡眠质量比较好,毕竟还有对象在,体验两天,自费退回去了.后来选择了群辉,比铁威马多了近一千块&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;系统安装 
+    &lt;div id=&#34;系统安装&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%b3%bb%e7%bb%9f%e5%ae%89%e8%a3%85&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;搞定连上电源、网线，点击开机键。然后打开路由器地址查看终端管理,打开局域网地址，按照提示下一步下一步，设置好内容就可以了，十分钟左右就结束。安装完毕进入系统界面.&lt;/p&gt;
+
+&lt;h1 class=&#34;relative group&#34;&gt;软件安装 
+    &lt;div id=&#34;软件安装&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e8%bd%af%e4%bb%b6%e5%ae%89%e8%a3%85&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;我们买NAS的最主要需求：&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

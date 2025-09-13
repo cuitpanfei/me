@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据结构与算法 on CUITPF</title>
+    <link>http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 数据结构与算法 on CUITPF</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Thu, 18 Jan 2018 01:31:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>如何理解并掌握 Java 数据结构</title>
+      <link>http://localhost:1313/other/post-363/</link>
+      <pubDate>Thu, 18 Jan 2018 01:31:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/other/post-363/</guid>
+      <description>&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;身为一个程序员 看到这个公式 &lt;code&gt;程序 = 数据结构 + 算法&lt;/code&gt; ，数据结构的重要性不言而喻了吧！&lt;/p&gt;
+&lt;p&gt;-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-来自小马哥的故事&lt;/p&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;第一部分：Java 数据结构 
+    &lt;div id=&#34;第一部分java-数据结构&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%ac%ac%e4%b8%80%e9%83%a8%e5%88%86java-%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;要理解Java数据结构，必须能清楚何为数据结构？&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;数据结构:&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Data_Structure，它是储存数据的一种结构体，在此结构中储存一些数据，而这些数据之间有一定的关系。&lt;/li&gt;
+&lt;li&gt;而各数据元素之间的相互关系，又包括三个组成成分，数据的逻辑结构，数据的存储结构和数据运算结构。&lt;/li&gt;
+&lt;li&gt;而一个数据结构的设计过程分成抽象层、数据结构层和实现层。 数据结构在Java的语言体系中按逻辑结构可以分为两大类：线性数据结构和非线性数据结构。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;一、Java数据结构之：线性数据结构 
+    &lt;div id=&#34;一java数据结构之线性数据结构&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%b8%80java%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%b9%8b%e7%ba%bf%e6%80%a7%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;线性数据结构：常见的有一维数组，线性表，栈，队列，双队列，串。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;一维数组 
+    &lt;div id=&#34;一维数组&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e4%b8%80%e7%bb%b4%e6%95%b0%e7%bb%84&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;在Java里面常用的util有：String [],int [],ArrayList,Vector,CopyOnWriteArrayList等。及可以同过一维数组[]自己实现不同逻辑结构的Util类。而ArrayList封装了一些[]的基本操作方法。ArrayList和Vector的区别是:Vector是线程安全的，方法同步。CopyOnWriteArrayList也是线程安全的但效率要比Vector高很多。&lt;/p&gt;
+&lt;p&gt;数组这种数据结构典型的操作方法，是根据下标进行操作的，所以insert的的时候可以根据下标插入到具体的某个位置，但是这个时候它后面的元素都得往后面移动一位。所以插入效率比较低,更新，删除效率也比较低，而查询效率非常高,查询效率时间复杂度是1。&lt;/p&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;线性表 
+    &lt;div id=&#34;线性表&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline&#34; href=&#34;#%e7%ba%bf%e6%80%a7%e8%a1%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;线性表是有序的储存结构、链式的储存结构。链表的物理储存空间是不连续的，链表的每一个节点都知道上一个节点、或者下一个节点是谁，通常用Node表示。常见的有顺序链表(LinkedList、Linked***)，单项链表（里面只有Node类），双向链表(两个Node类)，循环链表(多个Node类)等。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>数据结构的特性</title>
+      <link>http://localhost:1313/posts/post-370/</link>
+      <pubDate>Tue, 12 Dec 2017 07:50:09 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-370/</guid>
+      <description>&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;数据结构&lt;/th&gt;
+          &lt;th&gt;优点&lt;/th&gt;
+          &lt;th&gt;缺点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;数组&lt;/td&gt;
+          &lt;td&gt;插入快,如果知道下标,可以非常快地存取&lt;/td&gt;
+          &lt;td&gt;查找慢,删除慢,大小固定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;有序数组&lt;/td&gt;
+          &lt;td&gt;比无序的数组查找快&lt;/td&gt;
+          &lt;td&gt;删除和插入慢,大小固定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;栈&lt;/td&gt;
+          &lt;td&gt;提供后进先出的方式存取&lt;/td&gt;
+          &lt;td&gt;存取其他项很慢&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;队列&lt;/td&gt;
+          &lt;td&gt;提供先进先出方式的存取&lt;/td&gt;
+          &lt;td&gt;存取其他项很慢&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;链表&lt;/td&gt;
+          &lt;td&gt;插入快,删除快&lt;/td&gt;
+          &lt;td&gt;查找慢&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;二叉树&lt;/td&gt;
+          &lt;td&gt;查找,插入,删除都快(如果树保持平衡)&lt;/td&gt;
+          &lt;td&gt;删除算法复杂&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;红-黑 树&lt;/td&gt;
+          &lt;td&gt;查找,插入,删除都很快.树总是平衡的&lt;/td&gt;
+          &lt;td&gt;算法复杂&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;2-3-4 树&lt;/td&gt;
+          &lt;td&gt;查找,插入,删除都很快.树总是平衡的. 类似树对磁盘存储有用&lt;/td&gt;
+          &lt;td&gt;算法复杂&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;哈希表&lt;/td&gt;
+          &lt;td&gt;如果关键字已知则存取极快,插入快.&lt;/td&gt;
+          &lt;td&gt;删除慢,如果不知道关键字则存取很慢, 对存储空间使用不充分.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;堆&lt;/td&gt;
+          &lt;td&gt;插入,删除快,对最大数据项的存取很快&lt;/td&gt;
+          &lt;td&gt;存取其他数据项慢&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;图&lt;/td&gt;
+          &lt;td&gt;对现实世界建模&lt;/td&gt;
+          &lt;td&gt;有些算法慢且复杂&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>数据结构和算法关系</title>
+      <link>http://localhost:1313/posts/post-371/</link>
+      <pubDate>Tue, 12 Dec 2017 07:32:52 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/post-371/</guid>
+      <description>&lt;p&gt;数据结构：数据与数据之间的结构关系（数组、队列、树、图等结构）&lt;/p&gt;
+&lt;p&gt;算法：解决问题的步骤&lt;/p&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;p&gt;1、程序 = 数据结构 + 算法 。数据是程序的中心。数据结构和算法两个概念间的逻辑关系贯穿了整个程序世界，首先二者表现为不可分割的关系。没有数据间的有机关系，程序根本无法设计。&lt;/p&gt;
+&lt;p&gt;2、数据结构与算法关系：数据结构是底层，算法高层。数据结构为算法提供服务。算法围绕数据结构操作。&lt;/p&gt;
+&lt;p&gt;3、解决问题（算法）需要选择正确的数据结构。例如：算法中经常需要对数据进行增加和删除用链表数据结构效率高，数组数据结构因为增加和删除需要移动数字每个元素所有效率低。&lt;/p&gt;
+&lt;p&gt;4、数据结构特点：每种数据结构都具有自己的特点。例如：队列：先进先出。栈：先进后出。等等&lt;/p&gt;
+&lt;p&gt;5、算法的特性：算法具有五个基本特征：输入、输出、有穷性、确定性和可行性。&lt;/p&gt;
+&lt;p&gt;6、数据结构应用：数据结构往往同高效的检索算法、索引技术、排序算法有关&lt;/p&gt;
+&lt;p&gt;7、数据结构（逻辑数据结构）通过计算机语言来实现数据结构（存储数据结构）。例如：树型数据结构：通过计算机语言中的数组（节点）和指针（指向父节点）来实现。&lt;/p&gt;
+&lt;p&gt;8、存储结构：逻辑数据结构的实现。存储结构通过计算机语言实现。 例如：堆数据结构，堆是一棵完全二叉树，所以适宜采用顺序存储结构（顺序存储：数组），这样能够充分利用存储空间。&lt;/p&gt;
+&lt;p&gt;9、算法目的：算法是为数据结构服务。例如：数据结构通常伴随有查找算法、排序算法等&lt;/p&gt;
+&lt;p&gt;10、数据结构的优劣：一种数据结构的优劣是在实现其各种运算的算法中体现的。&lt;/p&gt;
+&lt;p&gt;二、数据结构：分为逻辑数据结构和存储数据结构两种 （1）顺序存储方法（顺序存储结构） （2）链接存储方法（链式存储结构） 同一种逻辑结构可采用不同的存储方法（以上两种之一或组合），这主要考虑的是运算方便及算法的时空要求。&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
